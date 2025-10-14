@@ -1,0 +1,70 @@
+--- TiltedCard.tsx ---
+import React from 'react';
+import './TiltedCard.css';
+
+interface TiltedCardProps {
+  title: string;
+  subtitle?: string;
+  imageUrl?: string;
+  children?: React.ReactNode;
+}
+
+const TiltedCard: React.FC<TiltedCardProps> = ({
+  title,
+  subtitle,
+  imageUrl,
+  children,
+}) => {
+  return (
+    <div className="tilted-card">
+      <div className="tilted-card-inner">
+        {imageUrl && (
+          <div
+            className="tilted-card-image"
+            style={{ backgroundImage: `url(${imageUrl})` }}
+          />
+        )}
+        <div className="tilted-card-content">
+          <h3>{title}</h3>
+          {subtitle && <h5>{subtitle}</h5>}
+          <div>{children}</div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default TiltedCard;
+
+--- TiltedCard.css ---
+.tilted-card {
+  perspective: 1000px;
+  width: 300px;
+  height: 400px;
+}
+
+.tilted-card-inner {
+  transform: rotateX(5deg) rotateY(-5deg);
+  transition: transform 0.3s ease;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.tilted-card:hover .tilted-card-inner {
+  transform: rotateX(0deg) rotateY(0deg);
+}
+
+.tilted-card-image {
+  width: 100%;
+  height: 50%;
+  background-size: cover;
+  background-position: center;
+}
+
+.tilted-card-content {
+  padding: 16px;
+}

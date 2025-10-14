@@ -1,0 +1,12 @@
+.magnetic-link {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.magnetic-button {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  user-select: none;
+}

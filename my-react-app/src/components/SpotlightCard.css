@@ -1,0 +1,17 @@
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.spotlight-card > *:not(.spotlight-overlay) {
+  position: relative;
+  z-index: 2;
+}
