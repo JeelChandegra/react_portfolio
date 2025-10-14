@@ -34,13 +34,6 @@
   background: rgba(59, 130, 246, 0.08);
 }
 
-.project-mockup {
-  width: 100%;
-  margin-bottom: -2rem;
-  position: relative;
-  z-index: 1;
-}
-
 .project-header {
   height: 180px;
   display: flex;

@@ -4,8 +4,6 @@ import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import SpotlightCard from './SpotlightCard';
 import TiltCard from './TiltCard';
-import PhoneMockup3D from './PhoneMockup3D';
-import { projectGradients } from '../data/projectImages';
 import './Projects.css';
 
 const projectsData = [
@@ -33,7 +31,7 @@ const projectsData = [
     description: 'Real-time multiplayer drawing and guessing game with live synchronization.',
     tech: ['Flutter', 'Firebase', 'Real-time Sync', 'Multiplayer'],
     gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-    icon: '🎨',
+    icon: '�',
     featured: true,
   },
   {
@@ -42,7 +40,7 @@ const projectsData = [
     description: 'Employee attendance tracking with automated salary calculations and reporting.',
     tech: ['Flutter', 'SQLite', 'Provider', 'Calendar'],
     gradient: 'linear-gradient(135deg, #30cfd0 0%, #330867 100%)',
-    icon: '📅',
+    icon: '�',
     featured: true,
   },
   {
@@ -51,7 +49,7 @@ const projectsData = [
     description: 'Interactive map-based travel diary with multimedia photo and video support.',
     tech: ['Flutter', 'Hive DB', 'Maps', 'Geocoding'],
     gradient: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
-    icon: '🗺️',
+    icon: '�️',
     featured: true,
   },
 ];
@@ -84,14 +82,6 @@ const Projects = () => {
               <SpotlightCard className={`project-card ${project.featured ? 'featured' : ''}`}>
                 <TiltCard>
                   <motion.div whileHover={{ y: -8 }} transition={{ duration: 0.3 }}>
-                    {/* 3D Phone Mockup */}
-                    <div className="project-mockup">
-                      <PhoneMockup3D 
-                        image={projectGradients[project.id as keyof typeof projectGradients]} 
-                        autoRotate={true} 
-                      />
-                    </div>
-
                     <div className="project-header" style={{ background: project.gradient }}>
                       {project.featured && <span className="featured-badge">Featured</span>}
                       <div className="project-icon">{project.icon}</div>
