@@ -47,7 +47,7 @@ const Contact = () => {
           <div className="contact-cards">
             <SpotlightCard>
               <motion.a
-                href="mailto:your.email@example.com"
+                href="mailto:chandegrajeel@gmail.com"
                 className="contact-card"
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -56,13 +56,13 @@ const Contact = () => {
               >
                 <div className="contact-card-icon">📧</div>
                 <h3>Email</h3>
-                <p>your.email@example.com</p>
+                <p>chandegrajeel@gmail.com</p>
               </motion.a>
             </SpotlightCard>
 
             <SpotlightCard>
               <motion.a
-                href="https://github.com/yourusername"
+                href="https://github.com/jeelchandegra"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="contact-card"
@@ -73,7 +73,7 @@ const Contact = () => {
               >
                 <div className="contact-card-icon"></div>
                 <h3>GitHub</h3>
-                <p>@yourusername</p>
+                <p>@jeelchandegra</p>
               </motion.a>
             </SpotlightCard>
 
@@ -103,7 +103,7 @@ const Contact = () => {
               >
                 <div className="contact-card-icon">📍</div>
                 <h3>Location</h3>
-                <p>Your City, Country</p>
+                <p>Rajkot, India</p>
               </motion.div>
             </SpotlightCard>
           </div>

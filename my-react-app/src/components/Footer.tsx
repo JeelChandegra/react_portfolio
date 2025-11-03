@@ -66,7 +66,7 @@ const Footer = () => {
           <div className="footer-section">
             <h4 className="footer-title">Get in Touch</h4>
             <ul className="footer-links">
-              <li><a href="mailto:your.email@example.com">chandegrjeel@gmail.com</a></li>
+              <li><a href="mailto:your.email@example.com">chandegrajeel@gmail.com</a></li>
               <li><Link to="/contact">+91 8530419353</Link></li>
               <li><Link to="/contact">Contact Form</Link></li>
             </ul>

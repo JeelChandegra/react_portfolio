@@ -20,7 +20,7 @@ const skillCategories = [
   },
   {
     title: 'Databases',
-    skills: ['SQLite', 'Room DB', 'Firebase Firestore', 'MySQL', 'PostgreSQL', 'MongoDB']
+    skills: ['SQLite', 'Room DB', 'Firebase Firestore', 'MySQL', 'PostgreSQL', 'MongoDB','Hive']
   },
   {
     title: 'Frameworks & Libraries',

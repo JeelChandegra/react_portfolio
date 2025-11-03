@@ -48,8 +48,8 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Crafting exceptional mobile experiences with Kotlin, Jetpack Compose,
-            and modern Android architecture patterns.
+            Passionate about creating beautiful, high-performance mobile apps using Flutter, built with modern design principles, clean architecture, and a focus on smooth, delightful user experiences.
+
           </motion.p>
 
           {/* CTA Buttons */}
@@ -89,12 +89,12 @@ const Home = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
+            {/* <div className="stat-card">
+              <div className="stat-value">2+</div>
+              <div className="stat-label">Years  Experience</div>
+            </div> */}
             <div className="stat-card">
               <div className="stat-value">5+</div>
-              <div className="stat-label">Years Experience</div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-value">30+</div>
               <div className="stat-label">Projects</div>
             </div>
           </motion.div>
@@ -111,6 +111,7 @@ const Home = () => {
             transition={{ duration: 0.6 }}
           >
             <h2 className="section-title">About Me</h2>
+
             <p className="section-subtitle">Passionate about creating exceptional mobile experiences</p>
           </motion.div>
 
@@ -125,7 +126,7 @@ const Home = () => {
                 avatarUrl="/img5.png"
                 miniAvatarUrl="/profile.jpg"
                 name="Jeel Chandegra"
-                title="Senior Android Developer"
+                title="Android Developer"
                 handle="jeelchandegra"
                 status="Available for work"
                 contactText="Contact"
@@ -146,10 +147,9 @@ const Home = () => {
                 <div className="card-icon">👨‍💻</div>
                 <h3>Android Developer</h3>
                 <p>
-                  Specializing in building scalable, high-performance Android applications using Kotlin and Jetpack Compose. 
-                  I focus on clean architecture, modern design patterns, and creating delightful user experiences.
-                </p>
-              
+                 I specialize in building scalable, high-performance mobile applications using Kotlin, Jetpack Compose, Flutter, and React Native. My focus is on clean architecture, modern design patterns, and crafting smooth, intuitive user experiences. I’m passionate about writing clean, maintainable code and staying up to date with the latest tools and frameworks to deliver reliable, production-ready apps that users love.
+                 </p>
+                   
               </motion.div>
             </SpotlightCard>
           </div>
