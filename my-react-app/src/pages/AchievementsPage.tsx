@@ -5,8 +5,6 @@ import SpotlightCard from '../components/SpotlightCard';
 import AnimatedText from '../components/AnimatedText';
 import './AchievementsPage.css';
 
-
-
 const certificatesData = [
   {
     title: 'Mission Blackout - 1st Runner Up',

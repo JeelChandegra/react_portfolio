@@ -35,8 +35,6 @@ const ModernIDCard: React.FC = () => {
     { label: 'Achievements', value: '3+', icon: '💎' }
   ];
 
-
-
   return (
     <motion.div 
       ref={cardRef}
