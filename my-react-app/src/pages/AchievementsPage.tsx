@@ -5,44 +5,7 @@ import SpotlightCard from '../components/SpotlightCard';
 import AnimatedText from '../components/AnimatedText';
 import './AchievementsPage.css';
 
-const achievementsData = [
-  {
-    icon: '🏆',
-    title: 'Google I/O Extended Speaker',
-    description: 'Presented on Jetpack Compose best practices',
-    year: '2024'
-  },
-  {
-    icon: '⭐',
-    title: '100K+ App Downloads',
-    description: 'Multiple apps crossed 100K downloads milestone',
-    year: '2023'
-  },
-  {
-    icon: '📱',
-    title: 'App of the Year',
-    description: 'Featured app in Google Play Store',
-    year: '2023'
-  },
-  {
-    icon: '🎓',
-    title: 'Android Certified Developer',
-    description: 'Google Associate Android Developer Certification',
-    year: '2022'
-  },
-  {
-    icon: '💻',
-    title: 'Open Source Contributor',
-    description: 'Contributed to major Android libraries',
-    year: '2022'
-  },
-  {
-    icon: '🚀',
-    title: 'Startup Launch',
-    description: 'Successfully launched 3 startup applications',
-    year: '2021'
-  }
-];
+
 
 const certificatesData = [
   {

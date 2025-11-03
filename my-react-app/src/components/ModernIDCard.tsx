@@ -35,12 +35,7 @@ const ModernIDCard: React.FC = () => {
     { label: 'Achievements', value: '3+', icon: '💎' }
   ];
 
-  const skills = [
-    { name: 'Kotlin', level: 95 },
-    { name: 'Flutter', level: 92 },
-    { name: 'Firebase', level: 90 },
-    { name: 'Jetpack Compose', level: 88 }
-  ];
+
 
   return (
     <motion.div 

@@ -108,15 +108,7 @@ const Home = () => {
               animate={isAboutInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              <ModernIDCard
-                avatarUrl="/05-02-2025-8f19056f-590d-4.jpg"
-                name="Jeel Chandegra"
-                title="Senior Android Developer"
-                location="Rajkot, India"
-                email="chandegrajeel@gmail.com"
-                github="jeelchandegra"
-                status="Available for Opportunities"
-              />
+              <ModernIDCard />
             </motion.div>
 
             <SpotlightCard>
