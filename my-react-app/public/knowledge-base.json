@@ -1,0 +1,509 @@
+{
+  "profile": {
+    "name": "Jeel Chandegra",
+    "title": "Android Developer",
+    "alternateTitle": "Senior Android Developer",
+    "location": "Rajkot, India",
+    "availability": "Available for opportunities",
+    "contact": {
+      "email": "chandegrajeel@gmail.com",
+      "github": "https://github.com/jeelchandegra",
+      "githubHandle": "@jeelchandegra",
+      "linkedin": "https://linkedin.com/in/yourusername"
+    },
+    "bio": "Passionate about creating beautiful, high-performance mobile apps using Flutter, built with modern design principles, clean architecture, and a focus on smooth, delightful user experiences. Specializing in building scalable, high-performance Android applications using Kotlin and Jetpack Compose. Focuses on clean architecture, modern design patterns, and crafting smooth, intuitive user experiences. Passionate about writing clean, maintainable code and staying up to date with the latest tools and frameworks to deliver reliable, production-ready apps that users love.",
+    "professionalSummary": "I specialize in building scalable, high-performance mobile applications using Kotlin, Jetpack Compose, Flutter, and React Native. My focus is on clean architecture, modern design patterns, and crafting smooth, intuitive user experiences.",
+    "attributes": [
+      "Fast Learner - Quick to adapt to new technologies and frameworks",
+      "Problem Solver - Strong analytical and debugging skills",
+      "Team Player - Excellent collaboration and communication"
+    ]
+  },
+  "skills": {
+    "languages": ["Kotlin", "Java", "XML", "SQL", "Python", "JavaScript", "Dart", "C++", "C#", "HTML", "CSS", "TypeScript"],
+    "architecture": ["MVVM", "Clean Architecture", "MVI", "Repository Pattern"],
+    "networking": ["Retrofit", "OkHttp", "Ktor", "REST APIs", "GraphQL"],
+    "databases": ["SQLite", "Room DB", "Firebase Firestore", "MySQL", "PostgreSQL", "MongoDB", "Hive"],
+    "frameworks": ["Jetpack Compose", "React", "Flutter", "Node.js", "Express.js"],
+    "cloudDevOps": ["Docker", "GitHub Actions", "AWS", "Google Cloud", "Firebase Hosting"],
+    "testing": ["JUnit", "Espresso", "Mockito"],
+    "tools": ["Git", "Gradle", "CI/CD", "Android Studio", "Figma"]
+  },
+  "projects": [
+    {
+      "id": "adaptive-quiz-engine",
+      "title": "Adaptive Quiz Engine with AI-Powered Learning",
+      "shortDescription": "AI-powered learning platform using IRT algorithms and Google Gemini for personalized quizzes.",
+      "tech": ["Flutter", "Firebase", "AI/ML", "IRT", "RAG"],
+      "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+      "icon": "🎓",
+      "featured": true,
+      "fullDescription": "An intelligent, personalized learning platform that adapts to student ability in real-time using psychometric algorithms and generative AI. Unlike traditional quiz apps that present static questions, this platform uses Item Response Theory (IRT) — the same psychometric framework used in standardized tests like GRE, GMAT, and SAT — combined with Google Gemini 2.5 AI to generate contextually relevant questions at precisely calibrated difficulty levels.",
+      "keyInnovation": "Combines Item Response Theory with Google Gemini 2.5 AI for real-time adaptive difficulty adjustment",
+      "features": [
+        "Adaptive Difficulty Engine using 3-Parameter Logistic IRT Model with Bayesian updating",
+        "AI-Powered Question Generation with Google Gemini 2.5 Flash API",
+        "Document-Based Learning with PDF upload and RAG pipeline",
+        "Advanced Analytics Dashboard with real-time performance tracking",
+        "Firebase Cloud Integration with offline-first architecture"
+      ],
+      "technicalHighlights": {
+        "techStack": {
+          "frontend": "Flutter 3.7 + Dart",
+          "aiml": "Google Gemini 2.5 Flash API",
+          "algorithms": "Custom IRT (3PL), Bayesian Inference",
+          "backend": "Firebase (Auth, Firestore, Analytics)",
+          "localDB": "Hive (NoSQL)",
+          "pdfProcessing": "Syncfusion Flutter PDF",
+          "charts": "fl_chart",
+          "stateManagement": "StatefulWidget + Streams"
+        },
+        "algorithms": {
+          "irt3PL": "Item Response Theory 3-Parameter Logistic Model for ability estimation",
+          "bayesian": "Bayesian theta estimation with Maximum A Posteriori optimization",
+          "rag": "Retrieval-Augmented Generation pipeline with smart chunking and keyword-based retrieval"
+        }
+      },
+      "challengesSolved": [
+        {
+          "challenge": "Real-Time Difficulty Adaptation",
+          "problem": "How to adjust difficulty dynamically without frustrating users or making quizzes too easy",
+          "solution": "Implemented Bayesian IRT with informative priors to prevent wild ability swings. Added learning rate (0.7) and max theta change constraints (±1.5). Used exponential smoothing for gradual difficulty transitions."
+        },
+        {
+          "challenge": "AI Response Latency (30-second delays)",
+          "problem": "Gemini API calls took 5-30 seconds, creating poor UX",
+          "solution": "Question pooling - pre-generate 5 questions, serve instantly from pool. Background refill while user answers. Smart caching. Timeout optimization. Result: Average latency reduced from 15s → <2s"
+        },
+        {
+          "challenge": "Preventing Duplicate Questions",
+          "problem": "AI might generate repetitive questions, frustrating users",
+          "solution": "Implemented fuzzy string matching with Levenshtein distance. Track previous questions and send to Gemini as negative examples. 70% similarity threshold triggers rejection."
+        },
+        {
+          "challenge": "Document Context Window Limits",
+          "problem": "Large PDFs exceed Gemini's 8K token context limit",
+          "solution": "Intelligent chunking (500 tokens/chunk with 50-token overlap). RAG pipeline retrieves only top-5 most relevant chunks. TF-IDF scoring for semantic relevance. Chapter filtering for specific document sections."
+        }
+      ],
+      "performance": {
+        "avgQuestionGeneration": "<2 seconds (with pooling)",
+        "firstQuestionLatency": "<1 second (pool hit)",
+        "ragRetrievalTime": "<500ms (local Hive lookup)",
+        "quizSessionLoadTime": "<1.5 seconds",
+        "offlineCapability": "Full functionality without internet"
+      },
+      "achievements": [
+        "Implemented production-grade IRT algorithm from academic papers",
+        "Reduced AI response latency by 90% through intelligent pooling and caching",
+        "Built complete RAG pipeline with PDF processing, chunking, and retrieval",
+        "Designed scalable architecture supporting 1,000+ concurrent users",
+        "Delivered full-stack solution from UI to cloud infrastructure"
+      ],
+      "repository": "https://github.com/HarshChauhan111/adaptive_quiz_firebase",
+      "linesOfCode": "~6,000 lines of Dart code"
+    },
+    {
+      "id": "probuddy",
+      "title": "ProBuddy - Professional Networking App",
+      "shortDescription": "Swipe-based professional networking app for developers with real-time messaging.",
+      "tech": ["Flutter", "Firebase", "Firestore", "Provider"],
+      "gradient": "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+      "icon": "🤝",
+      "featured": true,
+      "fullDescription": "ProBuddy is a mobile application that revolutionizes professional networking for software developers and tech professionals. Built with Flutter and Firebase, it combines the engaging swipe mechanics of modern dating apps with professional networking features, making it easy and fun to find collaborators, discover projects, and build meaningful professional connections.",
+      "problemStatement": "Traditional professional networking platforms often feel formal and time-consuming. Developers need a more engaging, intuitive way to discover project collaboration opportunities, connect with like-minded professionals, showcase their skills and projects, and find teammates for hackathons and side projects.",
+      "features": [
+        "Swipe-Based Discovery Interface - Tinder-like card swiper for browsing project opportunities",
+        "Dynamic User Profiles with customizable professional profiles, project portfolio integration, and real-time avatar generation using DiceBear API",
+        "Intelligent Search & Filtering with multi-criteria filtering (Skills, Location, Experience) and tag-based categorization",
+        "Connection Management System - send and receive connection requests, accept/reject functionality",
+        "Real-Time Messaging - in-app chat functionality between connections with message persistence",
+        "Project Posting & Applications - create and publish project opportunities, track user applications"
+      ],
+      "technicalImplementation": {
+        "frontend": "Flutter 3.7+ with Dart, Material Design 3 with custom dark theme",
+        "backend": "Firebase Authentication, Cloud Firestore, Firebase Storage",
+        "stateManagement": "Provider pattern with StatefulWidget",
+        "navigation": "Custom bottom navigation with IndexedStack for state preservation"
+      },
+      "keyTechnicalAchievements": [
+        "State Persistence Architecture - Implemented AutomaticKeepAliveClientMixin to preserve widget state, cards maintain position when users switch between tabs",
+        "Optimized Data Loading - Pagination with batch loading (10 posts at a time), reduced read operations by 60% through smart caching",
+        "Avatar System - Integrated DiceBear API with SVG rendering and client-side caching",
+        "Advanced Filtering System - Multi-dimensional filtering with Firestore array-contains queries",
+        "Real-time Chat Implementation - Bidirectional message flow with Firestore streams"
+      ],
+      "challengesSolved": [
+        {
+          "challenge": "State Preservation During Navigation",
+          "problem": "Card swiper reset to beginning when users switched tabs",
+          "solution": "Implemented AutomaticKeepAliveClientMixin with IndexedStack and PageStorage to maintain widget state across navigation"
+        },
+        {
+          "challenge": "Firestore Query Optimization",
+          "problem": "Complex filtering caused slow queries and high read costs",
+          "solution": "Implemented compound indexes, batch loading, and smart caching strategies to reduce read operations by 60%"
+        },
+        {
+          "challenge": "Avatar Performance",
+          "problem": "Loading avatars from API on every render caused lag",
+          "solution": "Created caching layer with SVG string storage in Firestore and memory cache for frequently accessed avatars"
+        }
+      ],
+      "metrics": {
+        "performance": "App launch to first interaction < 2 seconds",
+        "efficiency": "60% reduction in Firestore read operations",
+        "userExperience": "Zero state loss during navigation",
+        "scalability": "Handles 1000+ posts with smooth scrolling"
+      },
+      "repository": "https://github.com/JeelChandegra/pro_buddy_2",
+      "status": "Production-Ready"
+    },
+    {
+      "id": "scribble-game",
+      "title": "Scribble Game - Real-Time Multiplayer",
+      "shortDescription": "Real-time multiplayer drawing and guessing game with live synchronization.",
+      "tech": ["Flutter", "Firebase", "Real-time Sync", "Multiplayer"],
+      "gradient": "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+      "icon": "🎨",
+      "featured": true,
+      "fullDescription": "Scribble Game is a real-time multiplayer drawing and guessing game built with Flutter and Firebase. Players can create or join game rooms, take turns drawing words while others guess, and compete in an engaging social gaming experience.",
+      "features": [
+        "Real-Time Multiplayer - create or join game rooms with unique room codes",
+        "Turn-Based Drawing - players take turns being the drawer who illustrates a word",
+        "Word Guessing - other players compete to guess the word by typing in chat",
+        "Multiple Drawing Tools - Pencil, Straight line, Rectangle shapes, Circle shapes",
+        "Customizable Drawing - 20+ color palette options, 6 different brush sizes (2px - 20px)",
+        "Timed Rounds - 80-second countdown timer for each drawing session",
+        "Live Chat System - real-time messaging for guesses and communication",
+        "Score Tracking - automatic scoring system for correct guesses"
+      ],
+      "technicalStack": {
+        "frontend": "Flutter (Dart), Material Design 3",
+        "backend": "Cloud Firestore (Firebase), Firebase Auth",
+        "drawingLibrary": "flutter_drawing_board package",
+        "stateManagement": "StatefulWidget with setState"
+      },
+      "architecture": {
+        "pattern": "Clean Architecture with service layer",
+        "models": ["GameState", "Player", "DrawingAction", "DrawMode"],
+        "services": ["GameService", "FirebaseDrawingService", "FirebaseConfig"]
+      },
+      "realTimeSync": "Pan gesture detection for drawing input. Paint content creation with custom properties. Firebase Firestore for action broadcasting. Automatic drawing replication across all clients.",
+      "gameFlow": [
+        "Room Creation/Joining - Generate unique room IDs, Firebase room document creation, Player registration in room",
+        "Word Selection - Random word options presented to drawer, Word stored securely (hidden from guessers)",
+        "Drawing Phase - Real-time canvas updates, Drawing actions synchronized via Firebase, Chat-based guessing system",
+        "Round Completion - Reveal word to all players, Calculate scores for correct guesses, Transition to next round"
+      ],
+      "challengesSolved": [
+        "Real-Time Synchronization - Implemented efficient Firestore listeners to sync drawing actions with minimal latency across multiple devices",
+        "Drawing Performance - Optimized drawing rendering to handle smooth gesture input while broadcasting to Firebase",
+        "State Management - Managed complex game states (waiting, selecting, drawing, round end) with proper transitions",
+        "Cross-Platform Compatibility - Ensured consistent drawing experience across Android, iOS, and web platforms"
+      ],
+      "statistics": {
+        "linesOfCode": "~1,200+ (Dart)",
+        "models": "6+ data models",
+        "services": "3 custom service layers",
+        "uiScreens": "2 main screens (Home, Game)",
+        "widgets": "15+ custom widgets",
+        "firestoreCollections": "5+ Firestore collections per room"
+      }
+    },
+    {
+      "id": "attendance-management",
+      "title": "Employee Attendance Management System",
+      "shortDescription": "Employee attendance tracking with automated salary calculations and reporting.",
+      "tech": ["Flutter", "SQLite", "Provider", "Calendar"],
+      "gradient": "linear-gradient(135deg, #30cfd0 0%, #330867 100%)",
+      "icon": "📊",
+      "featured": true,
+      "fullDescription": "A comprehensive Flutter-based mobile application designed to streamline employee attendance tracking and salary management. This full-stack solution provides businesses with an intuitive interface for managing workforce attendance, calculating salaries based on work hours, and handling financial transactions.",
+      "features": [
+        "Interactive Calendar-Based Attendance Tracking with visual calendar interface using table_calendar package",
+        "Multiple attendance statuses: Present, Absent, Half Day, Leave, Partial Day",
+        "Flexible Working Hours Configuration - customizable standard and half-day hours",
+        "Automated Salary Calculations based on total hours worked, employee hourly rate, overtime tracking",
+        "Withdrawal/Advance Salary Management with automatic deduction from total earned salary",
+        "Comprehensive Employee Management with profiles, positions, and hourly rates"
+      ],
+      "technicalArchitecture": {
+        "frontend": "Flutter (Cross-platform: iOS, Android, Web, Desktop), Material Design 3",
+        "database": "SQLite via sqflite package, sqflite_common_ffi_web for browser compatibility",
+        "stateManagement": "Provider pattern",
+        "dataModels": ["Employee", "Attendance", "Withdrawal", "SalaryCalculation", "Settings"]
+      },
+      "challengesSolved": [
+        {
+          "challenge": "Attendance Status Update Bug",
+          "problem": "Users couldn't change attendance from Present to Absent for current or previously marked days",
+          "rootCauses": [
+            "In-memory caching conflicts with database state",
+            "Provider layer not reflecting immediate database changes",
+            "Inconsistent handling of hours/extraHours during status transitions"
+          ],
+          "solution": "Created EnhancedAttendanceScreen with direct database access. Implemented atomic database transactions using rawUpdate for guaranteed updates. Added manual database refresh after each status change. Force hours and extraHours to 0.0 for Absent/Leave statuses at SQL level. Implemented local caching with explicit cache invalidation."
+        },
+        {
+          "challenge": "Cross-Platform Database Support",
+          "problem": "SQLite doesn't work directly on web browsers",
+          "solution": "Implemented sqflite_common_ffi_web for web platform. Conditional initialization based on platform detection. Maintained single codebase for all platforms."
+        }
+      ],
+      "businessValue": {
+        "forEmployers": [
+          "Accurate attendance tracking reduces payroll errors",
+          "Transparent salary calculations build employee trust",
+          "Historical data for performance reviews",
+          "Advance payment tracking for better cash flow management"
+        ],
+        "forEmployees": [
+          "Clear visibility into hours worked and earnings",
+          "Easy access to attendance history",
+          "Transparent withdrawal/advance tracking"
+        ]
+      },
+      "deployment": "Android (Native APK), iOS (Native app), Web (PWA ready), Desktop (Windows/Linux/macOS support)"
+    },
+    {
+      "id": "journey-journal",
+      "title": "Journey Journal - Map-Based Travel Diary",
+      "shortDescription": "Interactive map-based travel diary with multimedia photo and video support.",
+      "tech": ["Flutter", "Hive DB", "Maps", "Geocoding"],
+      "gradient": "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
+      "icon": "🗺️",
+      "featured": true,
+      "fullDescription": "Journey Journal is a Flutter-based mobile application that allows users to document their travels by marking locations on an interactive map and attaching media (photos and videos) to each location. The app provides a seamless way to create a visual diary of your journeys with geolocation support and persistent local storage.",
+      "features": [
+        "Interactive Mapping - Dark-themed map using OpenStreetMap with CartoCD dark tiles, Long-press to add markers, Interactive popups",
+        "Media Management - Multi-media support for images and videos, Bulk upload, Image gallery grid view, Full-screen viewer with zoom, Built-in video player",
+        "Data Persistence - Hive database for local storage without code generation, CRUD operations, Custom adapters, Offline-first architecture",
+        "Permissions Handling - Storage permissions, Photo library access, Runtime permission requests"
+      ],
+      "technicalStack": {
+        "framework": "Flutter 3.7.2",
+        "maps": "flutter_map (^8.2.1)",
+        "database": "Hive (^2.2.3) & Hive Flutter (^1.1.0)",
+        "geocoding": "geocoding (^4.0.0)",
+        "media": ["image_picker (^1.2.0)", "file_picker (^10.3.3)", "video_player (^2.8.2)"],
+        "permissions": "permission_handler (^11.3.1)"
+      },
+      "coreFunctionality": {
+        "addingMarkers": "Long-press anywhere on map → Select images/videos → Marker automatically created → Address reverse-geocoded and saved",
+        "viewingMarkerDetails": "Tap marker to see popup → Click View to open full details → Swipe-up sheet shows location address, media grid, add/delete options",
+        "managingMedia": "Add via + button, View in full-screen with pinch-zoom, Delete via X on thumbnails, Play videos in dedicated player"
+      },
+      "implementationHighlights": {
+        "customHiveAdapters": "Implemented manual TypeAdapters to avoid build_runner code generation issues using JSON serialization",
+        "dataModels": ["MediaFile (file path, video flag)", "MarkerData (coordinates, media list, address, unique ID)", "Database Service (static CRUD methods)"],
+        "userExperience": "Loading indicators during media selection, Confirmation snackbars, Draggable scrollable sheet for marker details, Smooth animations"
+      },
+      "challengesSolved": [
+        "Build Runner Issues - Implemented custom Hive adapters without code generation",
+        "Media Type Detection - Automatic video/image classification based on file extension",
+        "State Synchronization - Keeping UI in sync with database changes",
+        "Permission Flow - Graceful handling of denied permissions",
+        "Memory Management - Efficient handling of multiple media files"
+      ],
+      "repository": "https://github.com/JeelChandegra/Journey_journel",
+      "statistics": {
+        "linesOfCode": "~800+",
+        "screens": "3 (Map, Image Viewer, Video Player)",
+        "dependencies": "15+ packages",
+        "platforms": "Android & iOS",
+        "minimumSDK": "Android 21+ (Android 5.0)"
+      }
+    }
+  ],
+  "experience": [
+    {
+      "role": "Senior Android Developer",
+      "company": "Tech Solutions Inc.",
+      "period": "2022 - Present",
+      "location": "Remote",
+      "description": "Leading Android development team, architecting scalable applications using Kotlin and Jetpack Compose.",
+      "achievements": [
+        "Migrated legacy codebase to Jetpack Compose, improving performance by 40%",
+        "Mentored 5 junior developers in Android best practices",
+        "Implemented CI/CD pipeline reducing deployment time by 60%"
+      ],
+      "tech": ["Kotlin", "Jetpack Compose", "MVVM", "Clean Architecture"]
+    },
+    {
+      "role": "Android Developer",
+      "company": "Mobile Apps Co.",
+      "period": "2020 - 2022",
+      "location": "New York, USA",
+      "description": "Developed and maintained multiple Android applications with millions of active users.",
+      "achievements": [
+        "Built e-commerce app with 1M+ downloads",
+        "Reduced app crash rate by 75%",
+        "Implemented real-time chat feature using Firebase"
+      ],
+      "tech": ["Kotlin", "Java", "Firebase", "Retrofit", "Room"]
+    },
+    {
+      "role": "Junior Android Developer",
+      "company": "StartUp Innovations",
+      "period": "2019 - 2020",
+      "location": "San Francisco, USA",
+      "description": "Contributed to Android app development and learned modern development practices.",
+      "achievements": [
+        "Developed 5+ features for main product",
+        "Fixed 100+ bugs improving app stability",
+        "Collaborated with design team for UI/UX improvements"
+      ],
+      "tech": ["Java", "XML", "SQLite", "REST APIs"]
+    }
+  ],
+  "achievements": [
+    {
+      "icon": "🏆",
+      "title": "Google I/O Extended Speaker",
+      "description": "Presented on Jetpack Compose best practices",
+      "year": "2024"
+    },
+    {
+      "icon": "⭐",
+      "title": "100K+ App Downloads",
+      "description": "Multiple apps crossed 100K downloads milestone",
+      "year": "2023"
+    },
+    {
+      "icon": "📱",
+      "title": "App of the Year",
+      "description": "Featured app in Google Play Store",
+      "year": "2023"
+    },
+    {
+      "icon": "🎓",
+      "title": "Android Certified Developer",
+      "description": "Google Associate Android Developer Certification",
+      "year": "2022"
+    },
+    {
+      "icon": "💻",
+      "title": "Open Source Contributor",
+      "description": "Contributed to major Android libraries",
+      "year": "2022"
+    },
+    {
+      "icon": "🚀",
+      "title": "Startup Launch",
+      "description": "Successfully launched 3 startup applications",
+      "year": "2021"
+    }
+  ],
+  "certificates": [
+    {
+      "title": "Mission Blackout - 1st Runner Up",
+      "organization": "Cyber Protectors",
+      "year": "2025",
+      "description": "Ultimate Cyber Champion - Mission Blackout Cyber Treasure Hunt",
+      "image": "/ctf1.jpeg"
+    },
+    {
+      "title": "Mission Blackout - 2nd Runner Up",
+      "organization": "Cyber Protectors",
+      "year": "2025",
+      "description": "Cyber Specialist - Mission Blackout Cyber Treasure Hunt",
+      "image": "/docker.jpg"
+    },
+    {
+      "title": "Docker 101 Workshop",
+      "organization": "Atmiya University",
+      "year": "2024",
+      "description": "2 Days Workshop on Docker 101 - Department of Computer Science",
+      "image": "/ctf2.jpeg"
+    }
+  ],
+  "stats": {
+    "projectsCompleted": "30+",
+    "yearsExperience": "5+",
+    "technologies": "20+"
+  },
+  "blog": [
+    {
+      "id": 1,
+      "title": "Getting Started with Jetpack Compose",
+      "excerpt": "Learn the fundamentals of building modern Android UIs with Jetpack Compose and declarative programming.",
+      "date": "Jan 15, 2025",
+      "readTime": "5 min read",
+      "category": "Tutorial",
+      "topics": ["Jetpack Compose", "Android UI", "Declarative Programming"]
+    },
+    {
+      "id": 2,
+      "title": "MVVM Architecture Best Practices",
+      "excerpt": "Comprehensive guide to implementing clean MVVM architecture in your Android applications.",
+      "date": "Jan 10, 2025",
+      "readTime": "8 min read",
+      "category": "Architecture",
+      "topics": ["MVVM", "Clean Architecture", "Android", "Best Practices"]
+    },
+    {
+      "id": 3,
+      "title": "Kotlin Coroutines Deep Dive",
+      "excerpt": "Master asynchronous programming in Android with Kotlin Coroutines and Flow.",
+      "date": "Dec 28, 2024",
+      "readTime": "10 min read",
+      "category": "Kotlin",
+      "topics": ["Kotlin", "Coroutines", "Async Programming", "Flow"]
+    },
+    {
+      "id": 4,
+      "title": "Material Design 3 in Android",
+      "excerpt": "Implementing Material You design system with dynamic theming and modern components.",
+      "date": "Dec 20, 2024",
+      "readTime": "6 min read",
+      "category": "Design",
+      "topics": ["Material Design", "UI/UX", "Theming", "Android"]
+    },
+    {
+      "id": 5,
+      "title": "Room Database Performance Tips",
+      "excerpt": "Optimize your local database operations with Room for better app performance.",
+      "date": "Dec 15, 2024",
+      "readTime": "7 min read",
+      "category": "Database",
+      "topics": ["Room Database", "SQLite", "Performance", "Optimization"]
+    },
+    {
+      "id": 6,
+      "title": "Android Testing Strategies",
+      "excerpt": "Complete guide to unit testing, UI testing, and integration testing in Android apps.",
+      "date": "Dec 10, 2024",
+      "readTime": "12 min read",
+      "category": "Testing",
+      "topics": ["Testing", "JUnit", "Espresso", "Quality Assurance"]
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What technologies do you specialize in?",
+      "answer": "I specialize in Android development with Kotlin and Jetpack Compose, Flutter for cross-platform apps, and modern web technologies like React and TypeScript. I'm proficient in MVVM architecture, Clean Architecture, and Firebase ecosystem."
+    },
+    {
+      "question": "What's your most complex project?",
+      "answer": "The Adaptive Quiz Engine is my most complex project. It combines Item Response Theory (IRT) algorithms with Google Gemini AI for personalized learning, includes a RAG pipeline for document-based learning, and features real-time adaptive difficulty adjustment based on student performance."
+    },
+    {
+      "question": "How many years of experience do you have?",
+      "answer": "I have 5+ years of professional Android development experience, working with companies ranging from startups to established tech firms, delivering 30+ projects across various domains."
+    },
+    {
+      "question": "What's your development approach?",
+      "answer": "I follow clean architecture principles with MVVM pattern, emphasize test-driven development, prioritize user experience, and maintain code quality through code reviews and CI/CD pipelines. I'm committed to writing maintainable, scalable code."
+    },
+    {
+      "question": "Are you available for new projects?",
+      "answer": "Yes! I'm currently available for opportunities. You can reach me at chandegrajeel@gmail.com or connect via GitHub at github.com/jeelchandegra"
+    },
+    {
+      "question": "What makes you different from other developers?",
+      "answer": "I combine strong technical skills with problem-solving abilities, having tackled complex challenges like IRT algorithm implementation, real-time multiplayer synchronization, and AI integration. I'm also a fast learner who stays updated with the latest technologies and best practices."
+    }
+  ]
+}

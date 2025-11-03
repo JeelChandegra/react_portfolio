@@ -3,9 +3,10 @@ import { useRef } from 'react';
 import AnimatedText from '../components/AnimatedText';
 import MagneticButton from '../components/MagneticButton';
 import SpotlightCard from '../components/SpotlightCard';
-import ProfileCard from '../components/ProfileCard';
+
 import resumePDF from '../assets/Jeel chandegra Resume (1).pdf';
 import './Home.css';
+import ModernIDCard from '../components/ModernIDCard';
 
 const Home = () => {
   const aboutRef = useRef(null);
@@ -82,22 +83,7 @@ const Home = () => {
             </MagneticButton>
           </motion.div>
 
-          {/* Stats Grid */}
-          <motion.div
-            className="stats-grid"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            {/* <div className="stat-card">
-              <div className="stat-value">2+</div>
-              <div className="stat-label">Years  Experience</div>
-            </div> */}
-            <div className="stat-card">
-              <div className="stat-value">5+</div>
-              <div className="stat-label">Projects</div>
-            </div>
-          </motion.div>
+          
         </div>
       </section>
 
@@ -122,18 +108,14 @@ const Home = () => {
               animate={isAboutInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              <ProfileCard
-                avatarUrl="/img5.png"
-                miniAvatarUrl="/profile.jpg"
+              <ModernIDCard
+                avatarUrl="/05-02-2025-8f19056f-590d-4.jpg"
                 name="Jeel Chandegra"
-                title="Android Developer"
-                handle="jeelchandegra"
-                status="Available for work"
-                contactText="Contact"
-                showUserInfo={true}
-                showBehindGradient={true}
-                enableTilt={true}
-                enableMobileTilt={true}
+                title="Senior Android Developer"
+                location="Rajkot, India"
+                email="chandegrajeel@gmail.com"
+                github="jeelchandegra"
+                status="Available for Opportunities"
               />
             </motion.div>
 

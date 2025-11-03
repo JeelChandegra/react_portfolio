@@ -8,15 +8,15 @@ import './Skills.css';
 const skillCategories = [
   {
     title: 'Languages',
-    skills: ['Kotlin', 'Java', 'XML', 'SQL', 'Python', 'JavaScript', 'Dart', 'C++', 'C#', 'HTML', 'CSS', 'TypeScript']
+    skills: ['Kotlin', 'Java', 'XML' , 'Python', 'JavaScript', 'Dart', 'C++', 'C#', 'HTML', 'CSS', 'TypeScript']
   },
   {
     title: 'Architecture',
-    skills: ['MVVM', 'Clean Architecture', 'MVI', 'Repository Pattern']
+    skills: ['MVVM', 'Clean Architecture', 'MVI']
   },
   {
     title: 'Networking',
-    skills: ['Retrofit', 'OkHttp', 'Ktor', 'REST APIs', 'GraphQL']
+    skills: ['Retrofit', 'OkHttp', 'Ktor', 'REST APIs', 'GraphQL','axios' ,'D io']
   },
   {
     title: 'Databases',
@@ -24,7 +24,7 @@ const skillCategories = [
   },
   {
     title: 'Frameworks & Libraries',
-    skills: ['Jetpack Compose', 'React', 'Flutter', 'Node.js', 'Express.js']
+    skills: ['Jetpack Compose', 'React','Redux','Next.js','React Native', 'Flutter', 'Node.js', 'Express.js']
   },
   {
     title: 'Cloud & DevOps',
@@ -36,7 +36,7 @@ const skillCategories = [
   },
   {
     title: 'Tools & Others',
-    skills: ['Git', 'Gradle', 'CI/CD', 'Android Studio', 'Figma']
+    skills: ['Git', 'Gradle', 'CI/CD', 'Android Studio', 'Figma','vsCode','Jupyter Notebooks']
   }
 ];
 

@@ -121,33 +121,8 @@ const AchievementsPage = () => {
           </div>
         </motion.div>
 
-        {/* Regular Achievements */}
-        <motion.div
-          className="achievements-wrapper"
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
-          <h3 className="section-heading">Career Milestones</h3>
-          <div className="achievements-grid">
-            {achievementsData.map((achievement, index) => (
-              <SpotlightCard key={index}>
-                <motion.div
-                  className="achievement-card"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                  transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-                  whileHover={{ y: -8 }}
-                >
-                <div className="achievement-icon">{achievement.icon}</div>
-                <span className="achievement-year">{achievement.year}</span>
-                <h3 className="achievement-title">{achievement.title}</h3>
-                <p className="achievement-description">{achievement.description}</p>
-              </motion.div>
-              </SpotlightCard>
-            ))}
-          </div>
-        </motion.div>
+       
+        
       </div>
     </div>
   );

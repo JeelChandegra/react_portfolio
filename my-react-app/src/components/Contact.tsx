@@ -8,18 +8,50 @@ import './Contact.css';
 
 const Contact = () => {
   const ref = useRef(null);
+  const formRef = useRef<HTMLFormElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: '',
   });
+  const [status, setStatus] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Message sent! (This is a demo)');
-    setFormData({ name: '', email: '', message: '' });
+    
+    setIsSubmitting(true);
+    setStatus('Sending...');
+
+    try {
+      const response = await fetch('https://formsubmit.co/chandegrajeel@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message
+        })
+      });
+
+      if (response.ok) {
+        setStatus('Message sent successfully! 🎉');
+        setFormData({ name: '', email: '', message: '' });
+        setTimeout(() => setStatus(''), 5000);
+      } else {
+        setStatus('Failed to send. Please email me directly.');
+        setTimeout(() => setStatus(''), 5000);
+      }
+    } catch (error) {
+      setStatus('Failed to send. Please email me directly.');
+      setTimeout(() => setStatus(''), 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -116,7 +148,7 @@ const Contact = () => {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.6, delay: 0.5 }}
             >
-              <form className="contact-form" onSubmit={handleSubmit}>
+              <form ref={formRef} className="contact-form" onSubmit={handleSubmit}>
                 <h3>Send a Message</h3>
                 <div className="form-row">
                   <input
@@ -147,9 +179,20 @@ const Contact = () => {
                   rows={6}
                   className="form-input form-textarea"
                 />
+                
+                {status && (
+                  <motion.div
+                    className={`status-message ${status.includes('success') ? 'success' : 'error'}`}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                  >
+                    {status}
+                  </motion.div>
+                )}
+                
                 <MagneticButton>
-                  <button type="submit" className="submit-btn">
-                    Send Message
+                  <button type="submit" className="submit-btn" disabled={isSubmitting}>
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                       <path d="M1 8L15 8M15 8L8 1M15 8L8 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>

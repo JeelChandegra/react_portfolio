@@ -7,57 +7,18 @@ import './ExperiencePage.css';
 
 const experienceData = [
   {
-    role: 'Senior Android Developer',
-    company: 'Tech Solutions Inc.',
-    period: '2022 - Present',
+    role: 'Machine Learning Internship',
+    company: 'Brainybeam Info-Tech PVT LTD.',
+    period: 'May 2025 - July 2025',
     location: 'Remote',
-    description: 'Leading Android development team, architecting scalable applications using Kotlin and Jetpack Compose.',
+    description: '',
     achievements: [
-      'Migrated legacy codebase to Jetpack Compose, improving performance by 40%',
-      'Mentored 5 junior developers in Android best practices',
-      'Implemented CI/CD pipeline reducing deployment time by 60%'
+      'Collected, cleaned, and preprocessed large datasets using Pandas, NumPy, and scikit-learn.',
+      'Built and trained machine learning models (e.g., regression, classification).'
     ],
-    tech: ['Kotlin', 'Jetpack Compose', 'MVVM', 'Clean Architecture']
+    tech: ['Python', 'Pandas', 'NumPy', 'scikit-learn', 'Jupyter Notebooks']
   },
-  {
-    role: 'Android Developer',
-    company: 'Mobile Apps Co.',
-    period: '2020 - 2022',
-    location: 'New York, USA',
-    description: 'Developed and maintained multiple Android applications with millions of active users.',
-    achievements: [
-      'Built e-commerce app with 1M+ downloads',
-      'Reduced app crash rate by 75%',
-      'Implemented real-time chat feature using Firebase'
-    ],
-    tech: ['Kotlin', 'Java', 'Firebase', 'Retrofit', 'Room']
-  },
-  {
-    role: 'Junior Android Developer',
-    company: 'StartUp Innovations',
-    period: '2019 - 2020',
-    location: 'San Francisco, USA',
-    description: 'Contributed to Android app development and learned modern development practices.',
-    achievements: [
-      'Developed 5+ features for main product',
-      'Fixed 100+ bugs improving app stability',
-      'Collaborated with design team for UI/UX improvements'
-    ],
-    tech: ['Java', 'XML', 'SQLite', 'REST APIs']
-  },
-  {
-    role: 'Junior Android Developer',
-    company: 'StartUp Innovations',
-    period: '2019 - 2020',
-    location: 'San Francisco, USA',
-    description: 'Contributed to Android app development and learned modern development practices.',
-    achievements: [
-      'Developed 5+ features for main product',
-      'Fixed 100+ bugs improving app stability',
-      'Collaborated with design team for UI/UX improvements'
-    ],
-    tech: ['Java', 'XML', 'SQLite', 'REST APIs']
-  }
+  
 ];
 
 const ExperiencePage = () => {
