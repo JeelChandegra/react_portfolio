@@ -1,8 +1,7 @@
 {
   "profile": {
     "name": "Jeel Chandegra",
-    "title": "Android Developer",
-    "alternateTitle": "Senior Android Developer",
+    "title": "Flutter & React Developer",
     "location": "Rajkot, India",
     "availability": "Available for opportunities",
     "contact": {
@@ -11,23 +10,16 @@
       "githubHandle": "@jeelchandegra",
       "linkedin": "https://linkedin.com/in/yourusername"
     },
-    "bio": "Passionate about creating beautiful, high-performance mobile apps using Flutter, built with modern design principles, clean architecture, and a focus on smooth, delightful user experiences. Specializing in building scalable, high-performance Android applications using Kotlin and Jetpack Compose. Focuses on clean architecture, modern design patterns, and crafting smooth, intuitive user experiences. Passionate about writing clean, maintainable code and staying up to date with the latest tools and frameworks to deliver reliable, production-ready apps that users love.",
-    "professionalSummary": "I specialize in building scalable, high-performance mobile applications using Kotlin, Jetpack Compose, Flutter, and React Native. My focus is on clean architecture, modern design patterns, and crafting smooth, intuitive user experiences.",
-    "attributes": [
-      "Fast Learner - Quick to adapt to new technologies and frameworks",
-      "Problem Solver - Strong analytical and debugging skills",
-      "Team Player - Excellent collaboration and communication"
-    ]
+    "bio": "Passionate about creating beautiful, high-performance mobile apps using Flutter, built with modern design principles, clean architecture, and a focus on smooth, delightful user experiences. I specialize in building scalable, high-performance mobile applications using Flutter and React. My focus is on clean architecture, modern design patterns, and crafting smooth, intuitive user experiences. Passionate about writing clean, maintainable code and staying up to date with the latest tools and frameworks to deliver reliable, production-ready apps that users love.",
+    "professionalSummary": "I specialize in building scalable, high-performance mobile applications using Flutter, React, Firebase, and AI technologies. My focus is on clean architecture, modern design patterns, and crafting smooth, intuitive user experiences."
   },
   "skills": {
-    "languages": ["Kotlin", "Java", "XML", "SQL", "Python", "JavaScript", "Dart", "C++", "C#", "HTML", "CSS", "TypeScript"],
-    "architecture": ["MVVM", "Clean Architecture", "MVI", "Repository Pattern"],
-    "networking": ["Retrofit", "OkHttp", "Ktor", "REST APIs", "GraphQL"],
-    "databases": ["SQLite", "Room DB", "Firebase Firestore", "MySQL", "PostgreSQL", "MongoDB", "Hive"],
-    "frameworks": ["Jetpack Compose", "React", "Flutter", "Node.js", "Express.js"],
-    "cloudDevOps": ["Docker", "GitHub Actions", "AWS", "Google Cloud", "Firebase Hosting"],
-    "testing": ["JUnit", "Espresso", "Mockito"],
-    "tools": ["Git", "Gradle", "CI/CD", "Android Studio", "Figma"]
+    "languages": ["Dart", "JavaScript", "TypeScript", "Python", "SQL", "HTML", "CSS"],
+    "frameworks": ["Flutter", "React", "Node.js", "Express.js"],
+    "databases": ["Firebase Firestore", "Hive", "SQLite", "MySQL", "PostgreSQL", "MongoDB"],
+    "ai": ["Google Gemini AI", "ElevenLabs", "RAG Pipeline", "IRT Algorithms"],
+    "cloudDevOps": ["Firebase", "Vercel", "Docker", "GitHub Actions", "Google Cloud"],
+    "tools": ["Git", "Android Studio", "VS Code", "Figma"]
   },
   "projects": [
     {
@@ -382,81 +374,16 @@
   ],
   "experience": [
     {
-      "role": "Senior Android Developer",
-      "company": "Tech Solutions Inc.",
-      "period": "2022 - Present",
+      "role": "Machine Learning Internship",
+      "company": "Brainybeam Info-Tech PVT LTD.",
+      "period": "May 2025 - July 2025",
       "location": "Remote",
-      "description": "Leading Android development team, architecting scalable applications using Kotlin and Jetpack Compose.",
+      "description": "",
       "achievements": [
-        "Migrated legacy codebase to Jetpack Compose, improving performance by 40%",
-        "Mentored 5 junior developers in Android best practices",
-        "Implemented CI/CD pipeline reducing deployment time by 60%"
+        "Collected, cleaned, and preprocessed large datasets using Pandas, NumPy, and scikit-learn.",
+        "Built and trained machine learning models (e.g., regression, classification)."
       ],
-      "tech": ["Kotlin", "Jetpack Compose", "MVVM", "Clean Architecture"]
-    },
-    {
-      "role": "Android Developer",
-      "company": "Mobile Apps Co.",
-      "period": "2020 - 2022",
-      "location": "New York, USA",
-      "description": "Developed and maintained multiple Android applications with millions of active users.",
-      "achievements": [
-        "Built e-commerce app with 1M+ downloads",
-        "Reduced app crash rate by 75%",
-        "Implemented real-time chat feature using Firebase"
-      ],
-      "tech": ["Kotlin", "Java", "Firebase", "Retrofit", "Room"]
-    },
-    {
-      "role": "Junior Android Developer",
-      "company": "StartUp Innovations",
-      "period": "2019 - 2020",
-      "location": "San Francisco, USA",
-      "description": "Contributed to Android app development and learned modern development practices.",
-      "achievements": [
-        "Developed 5+ features for main product",
-        "Fixed 100+ bugs improving app stability",
-        "Collaborated with design team for UI/UX improvements"
-      ],
-      "tech": ["Java", "XML", "SQLite", "REST APIs"]
-    }
-  ],
-  "achievements": [
-    {
-      "icon": "🏆",
-      "title": "Google I/O Extended Speaker",
-      "description": "Presented on Jetpack Compose best practices",
-      "year": "2024"
-    },
-    {
-      "icon": "⭐",
-      "title": "100K+ App Downloads",
-      "description": "Multiple apps crossed 100K downloads milestone",
-      "year": "2023"
-    },
-    {
-      "icon": "📱",
-      "title": "App of the Year",
-      "description": "Featured app in Google Play Store",
-      "year": "2023"
-    },
-    {
-      "icon": "🎓",
-      "title": "Android Certified Developer",
-      "description": "Google Associate Android Developer Certification",
-      "year": "2022"
-    },
-    {
-      "icon": "💻",
-      "title": "Open Source Contributor",
-      "description": "Contributed to major Android libraries",
-      "year": "2022"
-    },
-    {
-      "icon": "🚀",
-      "title": "Startup Launch",
-      "description": "Successfully launched 3 startup applications",
-      "year": "2021"
+      "tech": ["Python", "Pandas", "NumPy", "scikit-learn", "Jupyter Notebooks"]
     }
   ],
   "certificates": [
