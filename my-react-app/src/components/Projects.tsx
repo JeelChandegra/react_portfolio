@@ -8,15 +8,6 @@ import './Projects.css';
 
 const projectsData = [
   {
-    id: 'gemini-ai-chatbot',
-    title: 'Gemini AI Chatbot',
-    description: 'Feature-rich interactive chatbot powered by Google Gemini AI with advanced markdown rendering and conversation management.',
-    tech: ['React', 'Gemini API', 'Markdown', 'LocalStorage'],
-    gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-    icon: '🤖',
-    featured: true,
-  },
-  {
     id: 'adaptive-quiz-engine',
     title: 'Adaptive Quiz Engine',
     description: 'AI-powered learning platform using IRT algorithms and Google Gemini for personalized quizzes.',
@@ -59,6 +50,15 @@ const projectsData = [
     tech: ['Flutter', 'Hive DB', 'Maps', 'Geocoding'],
     gradient: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
     icon: '�️',
+    featured: true,
+  },
+  {
+    id: 'gemini-ai-chatbot',
+    title: 'Gemini AI Chatbot',
+    description: 'Feature-rich interactive chatbot powered by Google Gemini AI with advanced markdown rendering and conversation management.',
+    tech: ['React', 'Gemini API', 'Markdown', 'LocalStorage'],
+    gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    icon: '🤖',
     featured: true,
   },
 ];

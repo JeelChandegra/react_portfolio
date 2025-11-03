@@ -8,88 +8,7 @@ import './ProjectDetailPage.css';
 
 // Project data with detailed information
 const projectsData: { [key: string]: any } = {
-  'gemini-ai-chatbot': {
-    title: 'Gemini AI Chatbot',
-    subtitle: 'Feature-rich interactive chatbot powered by Google Gemini AI with advanced markdown rendering and conversation management',
-    icon: '🤖',
-    gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-    overview: 'A feature-rich, interactive chatbot web application powered by Google\'s Gemini AI API, built with React. The application provides an intelligent conversational interface with advanced response formatting, conversation management capabilities, and multi-model support for optimal performance.',
-    keyInnovation: 'Multi-model AI support with intelligent API key rotation and persistent conversation context, combined with advanced Markdown rendering using react-syntax-highlighter for code blocks and technical responses.',
-    tech: ['React 19.1.0', 'Gemini API', 'JavaScript', 'react-markdown', 'react-syntax-highlighter', 'LocalStorage', 'CSS3'],
-    features: [
-      {
-        title: 'Multi-Model Support',
-        description: 'Toggle between Gemini 2.0 Flash and Gemini 1.5 Flash models with dynamic configuration for temperature and token controls based on user preference.',
-        icon: '🔄',
-      },
-      {
-        title: 'Advanced Markdown Rendering',
-        description: 'Rich text formatting with syntax highlighting using react-syntax-highlighter and VS Code Dark Plus theme for code blocks, blockquotes, and structured content.',
-        icon: '📝',
-      },
-      {
-        title: 'Persistent Chat History',
-        description: 'Conversation storage using localStorage with context-aware responses, maintaining last 20 messages for meaningful conversation flow across sessions.',
-        icon: '💾',
-      },
-      {
-        title: 'Multi-API Key Management',
-        description: 'Three rotating API keys with usage tracking, automatic rate limit detection, and intelligent fallback mechanisms to ensure uninterrupted service.',
-        icon: '🔑',
-      },
-      {
-        title: 'Concise Mode Toggle',
-        description: 'User-controlled toggle for brief or detailed responses with dynamic prompt adjustment to match user preference for conversation depth.',
-        icon: '⚡',
-      },
-      {
-        title: 'Copy Functionality',
-        description: 'One-click copy buttons for code blocks, blockquotes, and full AI responses with visual feedback for improved user experience.',
-        icon: '📋',
-      },
-    ],
-    metrics: [
-      { label: 'Response Time', value: '<2s' },
-      { label: 'Context Messages', value: '20' },
-      { label: 'API Keys', value: '3' },
-      { label: 'Uptime', value: '99.9%' },
-    ],
-    challenges: [
-      {
-        problem: 'API Rate Limiting',
-        solution: 'Implemented intelligent API key rotation system with three keys, automatic usage tracking, and fallback mechanisms to ensure uninterrupted service even during heavy usage periods.',
-      },
-      {
-        problem: 'Conversation Context Management',
-        solution: 'Built context retention system that preserves last 20 messages, automatically manages token limits, and provides relevant context to AI for coherent multi-turn conversations.',
-      },
-      {
-        problem: 'Code Formatting in Responses',
-        solution: 'Integrated react-syntax-highlighter with VS Code Dark Plus theme, added one-click copy functionality for code snippets, and implemented proper markdown rendering for technical content.',
-      },
-      {
-        problem: 'Session Persistence',
-        solution: 'Used localStorage to maintain conversation history across browser refreshes, with automatic state restoration and cleanup mechanisms for optimal performance.',
-      },
-    ],
-    architecture: [
-      { layer: 'Frontend', tech: 'React 19.1.0 + Hooks', purpose: 'UI and state management' },
-      { layer: 'Rendering', tech: 'react-markdown + react-syntax-highlighter', purpose: 'Rich text formatting' },
-      { layer: 'AI Integration', tech: 'Google Generative Language API', purpose: 'Gemini AI responses' },
-      { layer: 'Storage', tech: 'localStorage', purpose: 'Conversation persistence' },
-      { layer: 'Styling', tech: 'Custom CSS3', purpose: 'Responsive UI design' },
-    ],
-    achievements: [
-      'Built complete multi-model AI chat system with Gemini 2.0 Flash and 1.5 Flash',
-      'Implemented intelligent API key rotation reducing rate limit errors by 90%',
-      'Created advanced markdown rendering with syntax highlighting for code blocks',
-      'Designed persistent conversation system maintaining context across sessions',
-      'Delivered responsive UI with keyboard shortcuts (Enter to send) for improved UX',
-      'Integrated real-time API rate limit monitoring and error handling',
-    ],
-    github: 'https://github.com/JeelChandegra/gemini-chatbot',
-    demo: 'https://aijeel.vercel.app/',
-  },
+  
   'adaptive-quiz-engine': {
     title: 'Adaptive Quiz Engine with AI-Powered Learning',
     subtitle: 'An intelligent, personalized learning platform that adapts to student ability in real-time',
@@ -420,6 +339,88 @@ const projectsData: { [key: string]: any } = {
     ],
     github: 'https://github.com/JeelChandegra/Journey_journel',
     demo: '#',
+  },
+   'gemini-ai-chatbot': {
+    title: 'Gemini AI Chatbot',
+    subtitle: 'Feature-rich interactive chatbot powered by Google Gemini AI with advanced markdown rendering and conversation management',
+    icon: '🤖',
+    gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    overview: 'A feature-rich, interactive chatbot web application powered by Google\'s Gemini AI API, built with React. The application provides an intelligent conversational interface with advanced response formatting, conversation management capabilities, and multi-model support for optimal performance.',
+    keyInnovation: 'Multi-model AI support with intelligent API key rotation and persistent conversation context, combined with advanced Markdown rendering using react-syntax-highlighter for code blocks and technical responses.',
+    tech: ['React 19.1.0', 'Gemini API', 'JavaScript', 'react-markdown', 'react-syntax-highlighter', 'LocalStorage', 'CSS3'],
+    features: [
+      {
+        title: 'Multi-Model Support',
+        description: 'Toggle between Gemini 2.0 Flash and Gemini 1.5 Flash models with dynamic configuration for temperature and token controls based on user preference.',
+        icon: '🔄',
+      },
+      {
+        title: 'Advanced Markdown Rendering',
+        description: 'Rich text formatting with syntax highlighting using react-syntax-highlighter and VS Code Dark Plus theme for code blocks, blockquotes, and structured content.',
+        icon: '📝',
+      },
+      {
+        title: 'Persistent Chat History',
+        description: 'Conversation storage using localStorage with context-aware responses, maintaining last 20 messages for meaningful conversation flow across sessions.',
+        icon: '💾',
+      },
+      {
+        title: 'Multi-API Key Management',
+        description: 'Three rotating API keys with usage tracking, automatic rate limit detection, and intelligent fallback mechanisms to ensure uninterrupted service.',
+        icon: '🔑',
+      },
+      {
+        title: 'Concise Mode Toggle',
+        description: 'User-controlled toggle for brief or detailed responses with dynamic prompt adjustment to match user preference for conversation depth.',
+        icon: '⚡',
+      },
+      {
+        title: 'Copy Functionality',
+        description: 'One-click copy buttons for code blocks, blockquotes, and full AI responses with visual feedback for improved user experience.',
+        icon: '📋',
+      },
+    ],
+    metrics: [
+      { label: 'Response Time', value: '<2s' },
+      { label: 'Context Messages', value: '20' },
+      { label: 'API Keys', value: '3' },
+      { label: 'Uptime', value: '99.9%' },
+    ],
+    challenges: [
+      {
+        problem: 'API Rate Limiting',
+        solution: 'Implemented intelligent API key rotation system with three keys, automatic usage tracking, and fallback mechanisms to ensure uninterrupted service even during heavy usage periods.',
+      },
+      {
+        problem: 'Conversation Context Management',
+        solution: 'Built context retention system that preserves last 20 messages, automatically manages token limits, and provides relevant context to AI for coherent multi-turn conversations.',
+      },
+      {
+        problem: 'Code Formatting in Responses',
+        solution: 'Integrated react-syntax-highlighter with VS Code Dark Plus theme, added one-click copy functionality for code snippets, and implemented proper markdown rendering for technical content.',
+      },
+      {
+        problem: 'Session Persistence',
+        solution: 'Used localStorage to maintain conversation history across browser refreshes, with automatic state restoration and cleanup mechanisms for optimal performance.',
+      },
+    ],
+    architecture: [
+      { layer: 'Frontend', tech: 'React 19.1.0 + Hooks', purpose: 'UI and state management' },
+      { layer: 'Rendering', tech: 'react-markdown + react-syntax-highlighter', purpose: 'Rich text formatting' },
+      { layer: 'AI Integration', tech: 'Google Generative Language API', purpose: 'Gemini AI responses' },
+      { layer: 'Storage', tech: 'localStorage', purpose: 'Conversation persistence' },
+      { layer: 'Styling', tech: 'Custom CSS3', purpose: 'Responsive UI design' },
+    ],
+    achievements: [
+      'Built complete multi-model AI chat system with Gemini 2.0 Flash and 1.5 Flash',
+      'Implemented intelligent API key rotation reducing rate limit errors by 90%',
+      'Created advanced markdown rendering with syntax highlighting for code blocks',
+      'Designed persistent conversation system maintaining context across sessions',
+      'Delivered responsive UI with keyboard shortcuts (Enter to send) for improved UX',
+      'Integrated real-time API rate limit monitoring and error handling',
+    ],
+    github: 'https://github.com/JeelChandegra/gemini-chatbot',
+    demo: 'https://aijeel.vercel.app/',
   },
 };
 
