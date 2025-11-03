@@ -90,6 +90,7 @@
         "Third-party library integration"
       ],
       "repository": "https://github.com/JeelChandegra/gemini-chatbot",
+      "demo": "https://aijeel.vercel.app/",
       "status": "Production-Ready"
     },
     {

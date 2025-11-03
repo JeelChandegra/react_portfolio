@@ -88,7 +88,7 @@ const projectsData: { [key: string]: any } = {
       'Integrated real-time API rate limit monitoring and error handling',
     ],
     github: 'https://github.com/JeelChandegra/gemini-chatbot',
-    demo: '#',
+    demo: 'https://aijeel.vercel.app/',
   },
   'adaptive-quiz-engine': {
     title: 'Adaptive Quiz Engine with AI-Powered Learning',
