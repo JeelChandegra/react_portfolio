@@ -21,23 +21,23 @@ Bio: ${knowledgeBase.profile.bio}`
   // Search in skills
   if (lowerQuestion.match(/\b(skill|technology|tech|know|experience|language|framework|database)\b/)) {
     const allSkills = [
-      ...knowledgeBase.skills.languages,
-      ...knowledgeBase.skills.architecture,
-      ...knowledgeBase.skills.frameworks,
-      ...knowledgeBase.skills.databases,
-      ...knowledgeBase.skills.cloudDevOps,
-      ...knowledgeBase.skills.tools
+      ...(knowledgeBase.skills.languages || []),
+      ...(knowledgeBase.skills.frameworks || []),
+      ...(knowledgeBase.skills.databases || []),
+      ...(knowledgeBase.skills.ai || []),
+      ...(knowledgeBase.skills.cloudDevOps || []),
+      ...(knowledgeBase.skills.tools || [])
     ];
     
     relevantContext.push({
       section: 'Skills',
       content: `Technical Skills:
-Languages: ${knowledgeBase.skills.languages.join(', ')}
-Architecture: ${knowledgeBase.skills.architecture.join(', ')}
-Frameworks: ${knowledgeBase.skills.frameworks.join(', ')}
-Databases: ${knowledgeBase.skills.databases.join(', ')}
-Cloud & DevOps: ${knowledgeBase.skills.cloudDevOps.join(', ')}
-Tools: ${knowledgeBase.skills.tools.join(', ')}`
+Languages: ${(knowledgeBase.skills.languages || []).join(', ')}
+Frameworks: ${(knowledgeBase.skills.frameworks || []).join(', ')}
+AI/ML: ${(knowledgeBase.skills.ai || []).join(', ')}
+Databases: ${(knowledgeBase.skills.databases || []).join(', ')}
+Cloud & DevOps: ${(knowledgeBase.skills.cloudDevOps || []).join(', ')}
+Tools: ${(knowledgeBase.skills.tools || []).join(', ')}`
     });
 
     // Check for specific technologies mentioned
@@ -92,19 +92,14 @@ Technologies: ${exp.tech.join(', ')}`
 
   // Search in achievements
   if (lowerQuestion.match(/\b(achievement|award|certificate|recognition|accomplish)\b/)) {
-    relevantContext.push({
-      section: 'Achievements',
-      content: knowledgeBase.achievements.map(a => 
-        `${a.title} (${a.year}): ${a.description}`
-      ).join('\n')
-    });
-    
-    relevantContext.push({
-      section: 'Certificates',
-      content: knowledgeBase.certificates.map(c =>
-        `${c.title} from ${c.organization} (${c.year}): ${c.description}`
-      ).join('\n')
-    });
+    if (knowledgeBase.certificates && knowledgeBase.certificates.length > 0) {
+      relevantContext.push({
+        section: 'Certificates & Awards',
+        content: knowledgeBase.certificates.map(c =>
+          `${c.title} from ${c.organization} (${c.year}): ${c.description}`
+        ).join('\n')
+      });
+    }
   }
 
   // If no specific context found, provide general overview
@@ -113,7 +108,6 @@ Technologies: ${exp.tech.join(', ')}`
       section: 'General',
       content: `${knowledgeBase.profile.name} is a ${knowledgeBase.profile.title} based in ${knowledgeBase.profile.location}.
 ${knowledgeBase.profile.professionalSummary}
-${knowledgeBase.stats.projectsCompleted} projects completed, ${knowledgeBase.stats.yearsExperience} years of experience.
 Contact: ${knowledgeBase.profile.contact.email}`
     });
   }
