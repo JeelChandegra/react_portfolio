@@ -1,4 +1,15 @@
-import knowledgeBase from '../public/knowledge-base.json' assert { type: 'json' };
+import { readFileSync } from 'fs';
+import { join } from 'path';
+
+// Load knowledge base
+let knowledgeBase;
+try {
+  const knowledgeBasePath = join(process.cwd(), 'public', 'knowledge-base.json');
+  knowledgeBase = JSON.parse(readFileSync(knowledgeBasePath, 'utf-8'));
+} catch (error) {
+  console.error('Error loading knowledge base:', error);
+  knowledgeBase = null;
+}
 
 // Simple keyword-based search function
 function searchKnowledgeBase(question) {
@@ -127,6 +138,14 @@ export default async function handler(req, res) {
 
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
+  }
+
+  // Check if knowledge base loaded
+  if (!knowledgeBase) {
+    return res.status(500).json({ 
+      error: 'Knowledge base not available',
+      answer: 'Sorry, I am currently unable to access information. Please try again later.'
+    });
   }
 
   try {
