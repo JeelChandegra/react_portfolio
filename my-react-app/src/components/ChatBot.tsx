@@ -97,6 +97,11 @@ ${knowledgeBase.achievements.map((a: any) => `- ${a.title} (${a.year})`).join('\
 STATS: ${knowledgeBase.stats.projectsCompleted} projects, ${knowledgeBase.stats.yearsExperience} years experience
 `;
 
+        // Build conversation history for context
+        const conversationHistory = messages.slice(-6).map(m => 
+          `${m.role === 'user' ? 'User' : 'Assistant'}: ${m.content}`
+        ).join('\n');
+
         // Direct Gemini API call for local development
         const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
         const geminiResponse = await fetch(
@@ -109,14 +114,26 @@ STATS: ${knowledgeBase.stats.projectsCompleted} projects, ${knowledgeBase.stats.
             body: JSON.stringify({
               contents: [{
                 parts: [{
-                  text: `You are an AI assistant for Jeel Chandegra's portfolio. Use the context below to answer questions professionally and helpfully.
+                  text: `You are an AI assistant for Jeel Chandegra's portfolio. Use the context below to answer questions professionally and helpfully. Remember the conversation history to provide contextual responses.
 
 CONTEXT:
 ${context}
 
-USER QUESTION: ${questionText}
+CONVERSATION HISTORY:
+${conversationHistory}
 
-Provide a concise, helpful answer (2-3 sentences max). Use emojis where appropriate. If asked about projects, mention specific ones with details. If asked about skills, be specific. Include relevant links or contact info when appropriate.`
+CURRENT QUESTION: ${questionText}
+
+Instructions:
+- If the user asks follow-up questions (like "tell me more", "what about", "how"), refer to the conversation history
+- Provide concise answers (2-4 sentences)
+- Use emojis where appropriate
+- If asked about projects, mention specific ones with details
+- If asked about skills, be specific
+- Include relevant links or contact info when appropriate
+- Be conversational and remember what was discussed earlier
+
+Answer:`
                 }]
               }],
               generationConfig: {
