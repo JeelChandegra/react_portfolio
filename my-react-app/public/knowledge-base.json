@@ -31,6 +31,68 @@
   },
   "projects": [
     {
+      "id": "gemini-ai-chatbot",
+      "title": "Gemini AI Chatbot",
+      "shortDescription": "Feature-rich interactive chatbot powered by Google Gemini AI with advanced markdown rendering and conversation management.",
+      "tech": ["React", "Gemini API", "JavaScript", "Markdown", "LocalStorage"],
+      "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+      "icon": "🤖",
+      "featured": true,
+      "fullDescription": "A feature-rich, interactive chatbot web application powered by Google's Gemini AI API, built with React. The application provides an intelligent conversational interface with advanced response formatting and conversation management capabilities.",
+      "keyInnovation": "Multi-model AI support with intelligent API key rotation and persistent conversation context",
+      "features": [
+        "Multi-Model Support - Toggle between Gemini 2.0 Flash and Gemini 1.5 Flash models",
+        "Advanced Markdown Rendering - Rich text formatting with syntax highlighting using react-syntax-highlighter",
+        "Persistent Chat History - Conversation storage using localStorage with context-aware responses",
+        "Multi-API Key Management - Three rotating API keys with usage tracking and automatic rate limit detection",
+        "Concise Mode - Toggle for brief or detailed responses based on user preference",
+        "Copy Functionality - Easy-to-use copy buttons for code blocks, blockquotes, and full responses",
+        "Smart Context Retention - Maintains last 20 messages for contextual conversations"
+      ],
+      "technicalStack": {
+        "frontend": "React 19.1.0 with Hooks (useState, useEffect)",
+        "uiux": "Custom CSS with responsive design",
+        "markdownRendering": "react-markdown with react-syntax-highlighter (VS Code Dark Plus theme)",
+        "apiIntegration": "Google Generative Language API (Gemini)",
+        "stateManagement": "Local state with localStorage persistence",
+        "buildTool": "Create React App"
+      },
+      "keyTechnicalAchievements": [
+        "Real-time API rate limit monitoring and error handling",
+        "Session persistence across browser refreshes",
+        "Dynamic model configuration with temperature and token controls",
+        "Responsive chat interface with distinct user/bot message styling",
+        "Keyboard shortcuts (Enter to send) for improved UX"
+      ],
+      "challengesSolved": [
+        {
+          "challenge": "API Rate Limiting",
+          "problem": "Single API key would hit rate limits during heavy usage",
+          "solution": "Implemented intelligent API key rotation system with three keys, automatic usage tracking, and fallback mechanisms to ensure uninterrupted service"
+        },
+        {
+          "challenge": "Conversation Context Management",
+          "problem": "Maintaining meaningful conversation flow across multiple exchanges",
+          "solution": "Built context retention system that preserves last 20 messages, automatically manages token limits, and provides relevant context to AI for coherent responses"
+        },
+        {
+          "challenge": "Code Formatting in Responses",
+          "problem": "AI responses with code blocks needed proper syntax highlighting",
+          "solution": "Integrated react-syntax-highlighter with VS Code Dark Plus theme, added one-click copy functionality for code snippets and responses"
+        }
+      ],
+      "skillsDemonstrated": [
+        "React.js development & modern hooks",
+        "RESTful API integration",
+        "State management & data persistence",
+        "Error handling & user feedback",
+        "UI/UX design & responsive layouts",
+        "Third-party library integration"
+      ],
+      "repository": "https://github.com/JeelChandegra/gemini-chatbot",
+      "status": "Production-Ready"
+    },
+    {
       "id": "adaptive-quiz-engine",
       "title": "Adaptive Quiz Engine with AI-Powered Learning",
       "shortDescription": "AI-powered learning platform using IRT algorithms and Google Gemini for personalized quizzes.",
