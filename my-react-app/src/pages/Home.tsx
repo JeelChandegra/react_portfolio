@@ -68,7 +68,7 @@ const Home = () => {
                 </svg>
               </div>
             </MagneticButton>
-            <MagneticButton href={resumePDF}>
+            <MagneticButton>
               <a href={resumePDF} download="Jeel_Chandegra_Resume.pdf" className="btn-secondary">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                   <path d="M8 1V11M8 11L11 8M8 11L5 8M2 11V13C2 14.1046 2.89543 15 4 15H12C13.1046 15 14 14.1046 14 13V11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>

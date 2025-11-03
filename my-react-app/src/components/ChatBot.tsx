@@ -51,21 +51,112 @@ const ChatBot = () => {
     setIsLoading(true);
 
     try {
-      // Call the API to get AI-powered response
-      const response = await fetch('/api/chat', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ question: questionText }),
-      });
+      // For production: use Vercel serverless function
+      // For development: call Gemini API directly
+      const isDev = import.meta.env.DEV;
+      let answer = '';
 
-      if (!response.ok) {
-        throw new Error('Failed to get response');
+      if (isDev) {
+        // Load knowledge base
+        const kbResponse = await fetch('/knowledge-base.json');
+        const knowledgeBase = await kbResponse.json();
+        
+        // Build comprehensive context
+        const context = `
+ABOUT JEEL CHANDEGRA:
+${knowledgeBase.profile.bio}
+
+CONTACT:
+- Email: ${knowledgeBase.profile.contact.email}
+- GitHub: ${knowledgeBase.profile.contact.github}
+- Location: ${knowledgeBase.profile.location}
+
+SKILLS:
+- Languages: ${knowledgeBase.skills.languages.join(', ')}
+- Frameworks: ${knowledgeBase.skills.frameworks.join(', ')}
+- Architecture: ${knowledgeBase.skills.architecture.join(', ')}
+- Databases: ${knowledgeBase.skills.databases.join(', ')}
+- Cloud/DevOps: ${knowledgeBase.skills.cloudDevOps.join(', ')}
+
+TOP PROJECTS:
+${knowledgeBase.projects.map((p: any) => `
+- ${p.title}: ${p.shortDescription}
+  Tech: ${p.tech.join(', ')}
+  ${p.features ? 'Key Features: ' + p.features.slice(0, 3).join('; ') : ''}
+`).join('\n')}
+
+EXPERIENCE:
+${knowledgeBase.experience.map((e: any) => `
+- ${e.role} at ${e.company} (${e.period})
+  ${e.achievements.slice(0, 2).join('. ')}
+`).join('\n')}
+
+ACHIEVEMENTS:
+${knowledgeBase.achievements.map((a: any) => `- ${a.title} (${a.year})`).join('\n')}
+
+STATS: ${knowledgeBase.stats.projectsCompleted} projects, ${knowledgeBase.stats.yearsExperience} years experience
+`;
+
+        // Direct Gemini API call for local development
+        const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+        const geminiResponse = await fetch(
+          `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent?key=${apiKey}`,
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              contents: [{
+                parts: [{
+                  text: `You are an AI assistant for Jeel Chandegra's portfolio. Use the context below to answer questions professionally and helpfully.
+
+CONTEXT:
+${context}
+
+USER QUESTION: ${questionText}
+
+Provide a concise, helpful answer (2-3 sentences max). Use emojis where appropriate. If asked about projects, mention specific ones with details. If asked about skills, be specific. Include relevant links or contact info when appropriate.`
+                }]
+              }],
+              generationConfig: {
+                temperature: 0.7,
+                maxOutputTokens: 400,
+              }
+            }),
+          }
+        );
+
+        console.log('Gemini Response Status:', geminiResponse.status);
+        
+        if (geminiResponse.ok) {
+          const data = await geminiResponse.json();
+          console.log('Gemini Response Data:', data);
+          answer = data.candidates?.[0]?.content?.parts?.[0]?.text || "Sorry, I couldn't generate a response. Please try asking differently.";
+        } else if (geminiResponse.status === 429) {
+          answer = "I'm getting too many requests right now. Please wait a moment and try again, or contact Jeel directly at chandegrajeel@gmail.com.";
+        } else {
+          const errorData = await geminiResponse.json().catch(() => ({}));
+          console.error('Gemini API Error:', errorData);
+          throw new Error('Gemini API error');
+        }
+      } else {
+        // Production: use Vercel serverless function
+        const response = await fetch('/api/chat', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ question: questionText }),
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to get response');
+        }
+
+        const data = await response.json();
+        answer = data.answer || "Sorry, I couldn't generate a response.";
       }
-
-      const data = await response.json();
-      const answer = data.answer || "Sorry, I couldn't generate a response. Please try again.";
 
       const assistantMessage: Message = {
         role: 'assistant',
