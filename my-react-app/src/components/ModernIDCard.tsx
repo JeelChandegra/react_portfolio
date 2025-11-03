@@ -29,6 +29,7 @@ const ModernIDCard: React.FC = () => {
     setRotateX(0);
     setRotateY(0);
   };
+
   const stats = [
     { label: 'Experience', value: '1+', icon: '⚡' },
     { label: 'Projects', value: '5+', icon: '🚀' },
