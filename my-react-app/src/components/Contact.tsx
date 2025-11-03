@@ -25,7 +25,7 @@ const Contact = () => {
     setStatus('Sending...');
 
     try {
-      const response = await fetch('https://formsubmit.co/chandegrajeel@gmail.com', {
+      const response = await fetch('https://formsubmit.co/ajax/chandegrajeel@gmail.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -34,7 +34,9 @@ const Contact = () => {
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
-          message: formData.message
+          message: formData.message,
+          _subject: 'New Portfolio Contact Form Submission',
+          _captcha: 'false'
         })
       });
 
