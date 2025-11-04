@@ -191,19 +191,27 @@ export default async function handler(req, res) {
         body: JSON.stringify({
           contents: [{
             parts: [{
-              text: `You are an AI assistant for Jeel Chandegra's portfolio. Answer questions about his work, skills, and experience using ONLY the provided context. Be friendly, professional, and concise.
+              text: `You are an AI assistant for Jeel Chandegra's portfolio. Answer questions about his work, skills, and experience using the provided context. Be enthusiastic, detailed, and informative. Share specific examples, project details, technologies, and achievements. Don't be shy - provide comprehensive answers that showcase his expertise.
 
 Context:
 ${contextText}
 
 Question: ${question}
 
-Answer (be specific and helpful, mention relevant projects/skills if applicable):`
+Instructions:
+- Provide detailed, informative answers (2-4 sentences minimum)
+- Mention specific projects, technologies, and achievements when relevant
+- Be enthusiastic and professional
+- Use concrete examples from the context
+- If asked about skills or experience, elaborate with specifics
+- Keep responses conversational but information-rich
+
+Answer:`
             }]
           }],
           generationConfig: {
-            temperature: 0.7,
-            maxOutputTokens: 500,
+            temperature: 0.8,
+            maxOutputTokens: 800,
           }
         }),
       }
