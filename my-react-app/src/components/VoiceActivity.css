@@ -1,0 +1,39 @@
+.voice-activity {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.activity-dot {
+  border-radius: 50%;
+  animation: voice-pulse 1.2s ease-in-out infinite;
+}
+
+/* Size variants */
+.voice-activity.small .activity-dot {
+  width: 6px;
+  height: 6px;
+}
+
+.voice-activity.medium .activity-dot {
+  width: 8px;
+  height: 8px;
+}
+
+.voice-activity.large .activity-dot {
+  width: 12px;
+  height: 12px;
+}
+
+/* Pulsing animation */
+@keyframes voice-pulse {
+  0%, 100% {
+    transform: scaleY(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scaleY(2.5);
+    opacity: 1;
+  }
+}

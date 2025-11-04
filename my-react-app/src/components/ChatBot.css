@@ -423,6 +423,18 @@
   position: relative;
 }
 
+.voice-activity-overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1rem 1.5rem;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 30px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 .voice-transcript {
   max-width: 350px;
   padding: 1.25rem 1.5rem;

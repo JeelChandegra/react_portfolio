@@ -42,9 +42,10 @@ const ChatBot = () => {
     if (SpeechRecognition) {
       console.log('✅ Speech Recognition is supported!');
       recognitionRef.current = new SpeechRecognition();
-      recognitionRef.current.continuous = true;
+      recognitionRef.current.continuous = true; // Keep listening for silence detection
       recognitionRef.current.interimResults = true;
       recognitionRef.current.lang = 'en-US';
+      recognitionRef.current.maxAlternatives = 1;
 
       recognitionRef.current.onresult = (event: any) => {
         const transcript = Array.from(event.results)
@@ -60,9 +61,9 @@ const ChatBot = () => {
           clearTimeout(silenceTimerRef.current);
         }
 
-        // Auto-detect silence (3 seconds)
+        // Auto-detect silence (1 second for faster detection)
         if (event.results[event.results.length - 1].isFinal) {
-          console.log('✅ Final result detected, setting 3s timer for auto-send');
+          console.log('✅ Final result detected, setting 1s timer for auto-send');
           const finalTranscript = transcript; // Capture the transcript
           silenceTimerRef.current = window.setTimeout(() => {
             console.log('⏰ Silence detected, sending:', finalTranscript);
@@ -70,7 +71,7 @@ const ChatBot = () => {
             if (finalTranscript.trim()) {
               handleSend(finalTranscript);
             }
-          }, 3000);
+          }, 1000); // Reduced to 1 second for faster response
         }
       };
 
@@ -87,9 +88,15 @@ const ChatBot = () => {
 
       recognitionRef.current.onend = () => {
         console.log('Recognition ended. isListening:', isListening);
-        // Don't auto-restart, let user control it
+        // Auto-restart if still in listening mode (prevents premature stops)
         if (isListening) {
-          setIsListening(false);
+          console.log('🔄 Auto-restarting recognition...');
+          try {
+            recognitionRef.current.start();
+          } catch (e) {
+            console.log('Could not restart recognition:', e);
+            setIsListening(false);
+          }
         }
       };
     } else {
@@ -236,7 +243,10 @@ const ChatBot = () => {
         
         if (audioRef.current) {
           audioRef.current.src = audioUrl;
-          audioRef.current.play();
+          audioRef.current.play().catch(error => {
+            console.error('❌ Audio play error:', error);
+          });
+          
           audioRef.current.onended = () => {
             console.log('✅ Audio playback finished');
             setIsSpeaking(false);

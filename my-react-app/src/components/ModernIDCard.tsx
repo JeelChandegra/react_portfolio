@@ -31,7 +31,7 @@ const ModernIDCard: React.FC = () => {
   };
 
   const stats = [
-    { label: 'Experience', value: '1+', icon: '⚡' },
+    { label: 'Experience', value: '#', icon: '⚡' },
     { label: 'Projects', value: '5+', icon: '🚀' },
     { label: 'Achievements', value: '3+', icon: '💎' }
   ];
