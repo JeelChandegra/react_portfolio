@@ -1,18 +1,35 @@
-import { readFileSync } from 'fs';
-import { join } from 'path';
+// Knowledge base will be loaded from the deployed public folder
+let knowledgeBase = null;
 
-// Load knowledge base
-let knowledgeBase;
-try {
-  const knowledgeBasePath = join(process.cwd(), 'public', 'knowledge-base.json');
-  knowledgeBase = JSON.parse(readFileSync(knowledgeBasePath, 'utf-8'));
-} catch (error) {
-  console.error('Error loading knowledge base:', error);
-  knowledgeBase = null;
+async function loadKnowledgeBase() {
+  if (knowledgeBase) return knowledgeBase;
+  
+  try {
+    // In production (Vercel), fetch from the public URL
+    const response = await fetch('https://jeelchandegra.vercel.app/knowledge-base.json');
+    if (response.ok) {
+      knowledgeBase = await response.json();
+      return knowledgeBase;
+    }
+  } catch (error) {
+    console.error('Error fetching knowledge base from URL:', error);
+  }
+  
+  // Fallback: try to read from file system (local development)
+  try {
+    const { readFileSync } = await import('fs');
+    const { join } = await import('path');
+    const knowledgeBasePath = join(process.cwd(), 'public', 'knowledge-base.json');
+    knowledgeBase = JSON.parse(readFileSync(knowledgeBasePath, 'utf-8'));
+    return knowledgeBase;
+  } catch (error) {
+    console.error('Error loading knowledge base from file:', error);
+    return null;
+  }
 }
 
 // Simple keyword-based search function
-function searchKnowledgeBase(question) {
+function searchKnowledgeBase(question, knowledgeBase) {
   const lowerQuestion = question.toLowerCase();
   const relevantContext = [];
 
@@ -140,8 +157,10 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  // Check if knowledge base loaded
-  if (!knowledgeBase) {
+  // Load knowledge base
+  const kb = await loadKnowledgeBase();
+  
+  if (!kb) {
     return res.status(500).json({ 
       error: 'Knowledge base not available',
       answer: 'Sorry, I am currently unable to access information. Please try again later.'
@@ -156,7 +175,7 @@ export default async function handler(req, res) {
     }
 
     // Search knowledge base for relevant context
-    const context = searchKnowledgeBase(question);
+    const context = searchKnowledgeBase(question, kb);
     const contextText = context.map(c => `${c.section}:\n${c.content}`).join('\n\n');
 
     // Call Gemini API
