@@ -205,6 +205,15 @@ Instructions:
 - Use concrete examples from the context
 - If asked about skills or experience, elaborate with specifics
 - Keep responses conversational but information-rich
+- When relevant, suggest navigation with markdown links:
+  * For projects: [View All Projects](/projects)
+  * For specific project: [View Project Details](/projects/project-id)
+  * For contact info: [Get in Touch](/contact)
+  * For skills: [See All Skills](/skills)
+  * For experience: [View Experience](/experience)
+  * For blog posts: [Read Blog](/blog)
+  * For achievements: [View Achievements](/achievements)
+- Add navigation links naturally at the end of your response when appropriate
 
 Answer:`
             }]

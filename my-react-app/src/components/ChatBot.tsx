@@ -1,5 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useNavigate } from 'react-router-dom';
+import ReactMarkdown from 'react-markdown';
 import './ChatBot.css';
 import Orb from './Orb';
 
@@ -10,6 +12,7 @@ interface Message {
 }
 
 const ChatBot = () => {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -572,7 +575,33 @@ Answer:`
                       transition={{ duration: 0.3 }}
                     >
                       <div className="message-content">
-                        {message.content}
+                        {message.role === 'assistant' ? (
+                          <ReactMarkdown
+                            components={{
+                              a: ({ node, href, children, ...props }) => (
+                                <a
+                                  href={href}
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    if (href && href.startsWith('/')) {
+                                      navigate(href);
+                                      setIsOpen(false);
+                                    } else if (href) {
+                                      window.open(href, '_blank');
+                                    }
+                                  }}
+                                  {...props}
+                                >
+                                  {children}
+                                </a>
+                              ),
+                            }}
+                          >
+                            {message.content}
+                          </ReactMarkdown>
+                        ) : (
+                          message.content
+                        )}
                       </div>
                       <div className="message-time">
                         {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
