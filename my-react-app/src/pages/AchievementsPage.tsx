@@ -1,6 +1,6 @@
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import { useInView } from 'motion/react';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import SpotlightCard from '../components/SpotlightCard';
 import AnimatedText from '../components/AnimatedText';
 import './AchievementsPage.css';
@@ -13,12 +13,14 @@ const certificatesData = [
     year: '2025',
     description: 'Ultimate Cyber Champion - Mission Blackout Cyber Treasure Hunt'
   },
-  {
-    title: 'Mission Blackout - 2nd Runner Up',
-    organization: 'Cyber Protectors',
-    image: '/docker.jpg',
+ 
+  
+   {
+    title: 'Code Carnival 2025 - Participant',
+    organization: 'Atmiya University',
+    image: '/Hackathin_2.jpeg',
     year: '2025',
-    description: 'Cyber Specialist - Mission Blackout Cyber Treasure Hunt'
+    description: 'A National Level Hackathon Code Carnival Season 2(36 Hours Hackathon) organized by Atmiya University'
   },
   {
     title: 'Docker 101 Workshop',
@@ -33,6 +35,15 @@ const certificatesData = [
 const AchievementsPage = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const [selectedCert, setSelectedCert] = useState<string | null>(null);
+
+  const openModal = (image: string) => {
+    setSelectedCert(image);
+  };
+
+  const closeModal = () => {
+    setSelectedCert(null);
+  };
 
   return (
     <div className="page achievements-page" ref={ref}>
@@ -65,8 +76,15 @@ const AchievementsPage = () => {
                   transition={{ duration: 0.6, delay: index * 0.15 }}
                   whileHover={{ y: -8, scale: 1.02 }}
                 >
-                  <div className="certificate-image-wrapper">
-                    <img src={cert.image} alt={cert.title} className="certificate-image" />
+                  <div 
+                    className="certificate-image-wrapper"
+                    onClick={() => openModal(cert.image)}
+                  >
+                    <img 
+                      src={cert.image} 
+                      alt={cert.title} 
+                      className="certificate-image"
+                    />
                     <div className="certificate-overlay">
                       <span className="certificate-year">{cert.year}</span>
                     </div>
@@ -85,6 +103,39 @@ const AchievementsPage = () => {
        
         
       </div>
+
+      {/* Modal for full image view */}
+      <AnimatePresence>
+        {selectedCert && (
+          <motion.div
+            className="certificate-modal-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            onClick={closeModal}
+          >
+            <motion.div
+              className="certificate-modal-content"
+              initial={{ scale: 0.5, opacity: 0, y: 50 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.5, opacity: 0, y: 50 }}
+              transition={{ 
+                type: 'spring', 
+                damping: 30, 
+                stiffness: 300,
+                mass: 0.8
+              }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button className="modal-close-btn" onClick={closeModal}>
+                ✕
+              </button>
+              <img src={selectedCert} alt="Certificate" className="modal-image" />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

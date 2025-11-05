@@ -50,6 +50,7 @@
   aspect-ratio: 16/9;
   overflow: hidden;
   background: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
 }
 
 .certificate-image {
@@ -57,6 +58,7 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.4s ease;
+  cursor: pointer;
 }
 
 .certificate-card:hover .certificate-image {
@@ -78,6 +80,7 @@
   align-items: flex-start;
   justify-content: flex-end;
   padding: 1rem;
+  pointer-events: none;
 }
 
 .certificate-year {
@@ -89,6 +92,7 @@
   color: #ffffff;
   font-weight: 700;
   backdrop-filter: blur(10px);
+  pointer-events: auto;
 }
 
 .certificate-content {
@@ -114,6 +118,112 @@
   color: rgba(255, 255, 255, 0.6);
   line-height: 1.6;
   font-size: 0.875rem;
+}
+
+/* Certificate Modal */
+.certificate-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 1.5rem;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  overflow: hidden;
+}
+
+.certificate-modal-content {
+  position: relative;
+  max-width: 1200px;
+  width: 90%;
+  background: linear-gradient(
+    135deg,
+    rgba(102, 126, 234, 0.1) 0%,
+    rgba(118, 75, 162, 0.1) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 
+    0 8px 32px 0 rgba(102, 126, 234, 0.2),
+    0 30px 60px -12px rgba(0, 0, 0, 0.5),
+    inset 0 -1px 2px 0 rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: modalGlow 3s ease-in-out infinite;
+}
+
+@keyframes modalGlow {
+  0%, 100% {
+    box-shadow: 
+      0 8px 32px 0 rgba(102, 126, 234, 0.2),
+      0 30px 60px -12px rgba(0, 0, 0, 0.5),
+      inset 0 -1px 2px 0 rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    box-shadow: 
+      0 8px 32px 0 rgba(102, 126, 234, 0.35),
+      0 30px 60px -12px rgba(0, 0, 0, 0.5),
+      inset 0 -1px 2px 0 rgba(255, 255, 255, 0.15);
+  }
+}
+
+.modal-image {
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 16px;
+  display: block;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10;
+  font-weight: 400;
+  line-height: 1;
+  box-shadow: 
+    0 4px 15px rgba(102, 126, 234, 0.4),
+    0 0 20px rgba(102, 126, 234, 0.2);
+}
+
+.modal-close-btn:hover {
+  transform: scale(1.15) rotate(90deg);
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  box-shadow: 
+    0 6px 25px rgba(102, 126, 234, 0.6),
+    0 0 30px rgba(102, 126, 234, 0.4);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.modal-close-btn:active {
+  transform: scale(1.05) rotate(90deg);
 }
 
 /* Achievements Wrapper */
@@ -206,6 +316,25 @@
 
   .certificate-title {
     font-size: 1.15rem;
+  }
+
+  .certificate-modal-content {
+    padding: 1rem;
+    width: 95%;
+    max-width: 95vw;
+  }
+
+  .modal-image {
+    max-height: 75vh;
+    border-radius: 12px;
+  }
+
+  .modal-close-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+    top: -0.75rem;
+    right: -0.75rem;
   }
 }
 

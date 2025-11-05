@@ -204,42 +204,78 @@ const ChatBot = () => {
 
       console.log('🔊 Starting text-to-speech for:', cleanText.substring(0, 50) + '...');
       setIsSpeaking(true);
-      const apiKey = import.meta.env.VITE_ELEVENLABS_API_KEY;
+      
+      // Try primary API key first, then fallback to secondary
+      const apiKeys = [
+        import.meta.env.VITE_ELEVENLABS_API_KEY,
+        import.meta.env.VITE_ELEVENLABS_API_KEY_2
+      ].filter(Boolean);
+      
       const voiceId = import.meta.env.VITE_ELEVENLABS_VOICE_ID;
 
-      console.log('API Key:', apiKey ? '✅ Present' : '❌ Missing');
+      console.log('Available API Keys:', apiKeys.length);
       console.log('Voice ID:', voiceId ? '✅ Present' : '❌ Missing');
 
-      if (!apiKey || !voiceId) {
+      if (apiKeys.length === 0 || !voiceId) {
         console.error('❌ Missing ElevenLabs credentials');
-        alert('ElevenLabs API key or Voice ID is missing. Check your .env file.');
         setIsSpeaking(false);
         return;
       }
 
-      const response = await fetch(
-        `https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`,
-        {
-          method: 'POST',
-          headers: {
-            'Accept': 'audio/mpeg',
-            'Content-Type': 'application/json',
-            'xi-api-key': apiKey,
-          },
-          body: JSON.stringify({
-            text: cleanText,
-            model_id: 'eleven_monolingual_v1',
-            voice_settings: {
-              stability: 0.5,
-              similarity_boost: 0.75,
-            },
-          }),
+      let response: Response | null = null;
+      let lastError = '';
+      
+      // Try each API key until one works
+      for (let i = 0; i < apiKeys.length; i++) {
+        const apiKey = apiKeys[i];
+        console.log(`Trying API key ${i + 1}/${apiKeys.length}...`);
+        
+        try {
+          response = await fetch(
+            `https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`,
+            {
+              method: 'POST',
+              headers: {
+                'Accept': 'audio/mpeg',
+                'Content-Type': 'application/json',
+                'xi-api-key': apiKey,
+              },
+              body: JSON.stringify({
+                text: cleanText,
+                model_id: 'eleven_monolingual_v1',
+                voice_settings: {
+                  stability: 0.5,
+                  similarity_boost: 0.75,
+                },
+              }),
+            }
+          );
+
+          console.log(`ElevenLabs Response Status (Key ${i + 1}):`, response.status);
+
+          if (response.ok) {
+            console.log(`✅ Success with API key ${i + 1}`);
+            break; // Success, exit loop
+          } else if (response.status === 401 || response.status === 402) {
+            // Quota exceeded or unauthorized, try next key
+            const errorText = await response.text();
+            lastError = `Key ${i + 1}: ${response.status} - ${errorText}`;
+            console.warn(`⚠️ ${lastError}`);
+            response = null; // Reset to try next key
+            continue;
+          } else {
+            // Other error, stop trying
+            lastError = await response.text();
+            break;
+          }
+        } catch (error) {
+          lastError = String(error);
+          console.error(`❌ Error with API key ${i + 1}:`, error);
+          continue;
         }
-      );
+      }
 
-      console.log('ElevenLabs Response Status:', response.status);
-
-      if (response.ok) {
+      if (response && response.ok) {
         console.log('✅ Audio received, playing...');
         const audioBlob = await response.blob();
         const audioUrl = URL.createObjectURL(audioBlob);
@@ -257,14 +293,11 @@ const ChatBot = () => {
           };
         }
       } else {
-        const errorText = await response.text();
-        console.error('❌ ElevenLabs API error:', response.status, errorText);
-        alert('ElevenLabs error: ' + response.status + '. Check console for details.');
+        console.error('❌ All ElevenLabs API keys failed:', lastError);
         setIsSpeaking(false);
       }
     } catch (error) {
       console.error('❌ Text-to-speech error:', error);
-      alert('Voice error: ' + error);
       setIsSpeaking(false);
     }
   };
