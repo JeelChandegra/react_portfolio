@@ -16,11 +16,19 @@ const certificatesData = [
  
   
    {
-    title: 'Code Carnival 2025 - Participant',
+    title: 'Code Carnival 2025',
     organization: 'Atmiya University',
     image: '/Hackathin_2.jpeg',
     year: '2025',
     description: 'A National Level Hackathon Code Carnival Season 2(36 Hours Hackathon) organized by Atmiya University'
+  },
+  
+   {
+    title: 'Anveshana Hackathon 2024 ',
+    organization: 'Atmiya University',
+    image: '/hack2.jpeg',
+    year: '2024',
+    description: 'A National Level Hackathon Anveshana (36 Hours Hackathon) organized by Atmiya University'
   },
   {
     title: 'Docker 101 Workshop',

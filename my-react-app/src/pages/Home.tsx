@@ -4,7 +4,7 @@ import AnimatedText from '../components/AnimatedText';
 import MagneticButton from '../components/MagneticButton';
 import SpotlightCard from '../components/SpotlightCard';
 
-import resumePDF from '../assets/Jeel chandegra Resume (1).pdf';
+import resumePDF from '../assets/JeelchandegraResume.pdf';
 import './Home.css';
 import ModernIDCard from '../components/ModernIDCard';
 
@@ -49,7 +49,7 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Passionate about creating beautiful, high-performance mobile apps using Flutter, built with modern design principles, clean architecture, and a focus on smooth, delightful user experiences.
+            Passionate about creating beautiful, high-performance mobile apps using Flutter, React Native, Firebase, and Node.js built with modern design principles, clean architecture, and a focus on smooth, delightful user experiences.
 
           </motion.p>
 
@@ -69,7 +69,7 @@ const Home = () => {
               </div>
             </MagneticButton>
             <MagneticButton>
-              <a href={resumePDF} download="Jeel_Chandegra_Resume.pdf" className="btn-secondary">
+              <a href={resumePDF} download="JeelchandegraResume.pdf" className="btn-secondary">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                   <path d="M8 1V11M8 11L11 8M8 11L5 8M2 11V13C2 14.1046 2.89543 15 4 15H12C13.1046 15 14 14.1046 14 13V11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>

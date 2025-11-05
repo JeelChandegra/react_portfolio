@@ -52,9 +52,7 @@ const About = () => {
               <div className="card-icon">👨‍💻</div>
               <h3>Android Developer</h3>
               <p>
-                Specializing in building scalable, high-performance Android applications using Kotlin and Jetpack Compose. 
-                I focus on clean architecture, modern design patterns, and creating delightful user experiences.
-              </p>
+               I specialize in building scalable, high-performance mobile applications using Flutter, React Native, and related technologies. My focus is on clean architecture, modern design patterns, and delivering smooth, intuitive user experiences. Alongside mobile development, I have hands-on experience integrating AI/ML features and Retrieval-Augmented Generation (RAG) systems into apps to create smarter and more personalized user interactions. I’m passionate about writing clean, maintainable code and staying up to date with the latest tools and frameworks to build reliable, production-ready applications that users love. </p>
               <div className="tag-list">
                 <span className="tag">Kotlin</span>
                 <span className="tag">Jetpack Compose</span>
