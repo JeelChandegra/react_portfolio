@@ -8,6 +8,15 @@ import './Projects.css';
 
 const projectsData = [
   {
+    id: 'codeforces-tracker',
+    title: 'Codeforces Problem Tracker',
+    description: 'Analytics dashboard for tracking competitive programming progress with smart problem recommendations.',
+    tech: ['JavaScript', 'Chart.js', 'Codeforces API'],
+    gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+    icon: '📊',
+    featured: true,
+  },
+  {
     id: 'adaptive-quiz-engine',
     title: 'Adaptive Quiz Engine',
     description: 'AI-powered learning platform using IRT algorithms and Google Gemini for personalized quizzes.',

@@ -9,6 +9,79 @@ import './ProjectDetailPage.css';
 // Project data with detailed information
 const projectsData: { [key: string]: any } = {
   
+  'codeforces-tracker': {
+    title: 'Codeforces Problem Tracker',
+    subtitle: 'Analytics dashboard for tracking competitive programming progress with smart problem recommendations',
+    icon: '📊',
+    gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+    overview: 'A comprehensive web-based analytics dashboard for tracking and improving competitive programming progress on Codeforces. Features personalized problem recommendations, streak tracking, visual analytics, and progress monitoring - all in a single-page application with zero server requirements.',
+    keyInnovation: 'Smart recommendation engine with 6 personalized problem categories based on user skill level and solving patterns, combined with topic mastery visualization and streak gamification.',
+    tech: ['JavaScript', 'Chart.js', 'Codeforces API', 'HTML5', 'CSS3', 'LocalStorage'],
+    features: [
+      {
+        title: 'User Statistics Dashboard',
+        description: 'Comprehensive stats including total solved, average rating, max rating, current & longest streaks with visual progress indicators.',
+        icon: '📈',
+      },
+      {
+        title: 'Visual Analytics',
+        description: 'Rating distribution bar chart and topic mastery doughnut charts using Chart.js for data visualization and progress tracking.',
+        icon: '📊',
+      },
+      {
+        title: 'Smart Problem Recommendations',
+        description: '6 categories: Weak Topics, Next Level, Popular Unsolved, Mixed Practice, Similar to Recent, Contest Prep - all personalized to user level.',
+        icon: '🎯',
+      },
+      {
+        title: 'Topic Mastery Progress',
+        description: 'Visual progress bars with Beginner/Intermediate/Master levels for each competitive programming topic with color-coded indicators.',
+        icon: '🏆',
+      },
+    ],
+    metrics: [
+      { label: 'Recommendation Categories', value: '6' },
+      { label: 'Analytics Metrics', value: '8+' },
+      { label: 'Chart Visualizations', value: '2' },
+      { label: 'Backend Required', value: 'None' },
+    ],
+    challenges: [
+      {
+        problem: 'Personalized Recommendations',
+        solution: 'Built 6-category recommendation system analyzing solve history, weak topics, rating progression, and tag preferences for tailored practice suggestions.',
+      },
+      {
+        problem: 'Streak Consistency Tracking',
+        solution: 'Implemented dual streak system (current & longest) with day-by-day analysis from submission timestamps, displayed prominently with 🔥 visual indicator.',
+      },
+      {
+        problem: 'Visual Progress Monitoring',
+        solution: 'Created topic mastery system with color-coded progress bars, solve rate percentages, and skill level badges (Beginner/Intermediate/Master).',
+      },
+      {
+        problem: 'Zero-Backend Analytics',
+        solution: 'Leveraged Codeforces public API with client-side data processing, localStorage caching, and Chart.js visualizations - pure frontend solution.',
+      },
+    ],
+    architecture: [
+      { layer: 'Frontend', tech: 'Vanilla JavaScript (ES6+), HTML5, CSS3', purpose: 'User interface & interactions' },
+      { layer: 'Visualization', tech: 'Chart.js', purpose: 'Analytics charts & graphs' },
+      { layer: 'API Integration', tech: 'Codeforces API', purpose: 'Problem & submission data' },
+      { layer: 'Storage', tech: 'LocalStorage', purpose: 'Theme & cache management' },
+      { layer: 'Styling', tech: 'CSS Variables', purpose: 'Dark/Light theme system' },
+    ],
+    achievements: [
+      'Built smart recommendation engine with 6 personalized problem categories',
+      'Implemented streak tracking system analyzing submission timestamps',
+      'Created topic mastery visualization with progress bars and skill levels',
+      'Designed zero-backend solution using only Codeforces public API',
+      'Delivered responsive dark/light theme with localStorage persistence',
+      'Optimized API calls with client-side caching for better performance',
+    ],
+    github: 'https://github.com/JeelChandegra/codeforces-tracker',
+    demo: 'https://codeforces-tracker.vercel.app',
+  },
+  
   'adaptive-quiz-engine': {
     title: 'Adaptive Quiz Engine with AI-Powered Learning',
     subtitle: 'An intelligent, personalized learning platform that adapts to student ability in real-time',
