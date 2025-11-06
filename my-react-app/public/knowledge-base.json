@@ -477,11 +477,18 @@
       "image": "/ctf1.jpeg"
     },
     {
-      "title": "Mission Blackout - 2nd Runner Up",
-      "organization": "Cyber Protectors",
+      "title": "Code Carnival 2025",
+      "organization": "Atmiya University",
       "year": "2025",
-      "description": "Cyber Specialist - Mission Blackout Cyber Treasure Hunt",
-      "image": "/docker.jpg"
+      "description": "A National Level Hackathon Code Carnival Season 2 (36 Hours Hackathon) organized by Atmiya University",
+      "image": "/Hackathin_2.jpeg"
+    },
+    {
+      "title": "Anveshana Hackathon 2024",
+      "organization": "Atmiya University",
+      "year": "2024",
+      "description": "A National Level Hackathon Anveshana (36 Hours Hackathon) organized by Atmiya University",
+      "image": "/hack2.jpeg"
     },
     {
       "title": "Docker 101 Workshop",
@@ -491,6 +498,127 @@
       "image": "/ctf2.jpeg"
     }
   ],
+  "achievements": {
+    "competitive_programming": {
+      "title": "Competitive Programming",
+      "accomplishments": [
+        {
+          "achievement": "Solved 500+ problems across multiple platforms",
+          "platforms": ["Codeforces", "LeetCode", "CodeChef", "HackerRank"],
+          "description": "Demonstrated strong problem-solving skills in data structures and algorithms"
+        },
+        {
+          "achievement": "Built Codeforces Problem Tracker",
+          "description": "Created analytics dashboard with 6 personalized recommendation categories, streak tracking, and topic mastery visualization",
+          "impact": "Helps programmers track progress and identify weak areas efficiently"
+        }
+      ]
+    },
+    "cybersecurity": {
+      "title": "Cybersecurity Competitions",
+      "accomplishments": [
+        {
+          "achievement": "Mission Blackout - 1st Runner Up (2025)",
+          "organization": "Cyber Protectors",
+          "title": "Ultimate Cyber Champion",
+          "description": "Secured 2nd position in Mission Blackout Cyber Treasure Hunt competition",
+          "skills": ["CTF", "Penetration Testing", "Network Security", "Cryptography"]
+        }
+      ]
+    },
+    "hackathons": {
+      "title": "Hackathon Participation",
+      "accomplishments": [
+        {
+          "achievement": "Code Carnival 2025 - National Level Hackathon",
+          "organization": "Atmiya University",
+          "duration": "36 Hours",
+          "description": "Participated in Season 2 of Code Carnival, showcasing innovative solutions",
+          "year": "2025"
+        },
+        {
+          "achievement": "Anveshana Hackathon 2024 - National Level",
+          "organization": "Atmiya University",
+          "duration": "36 Hours",
+          "description": "Competed in 36-hour hackathon developing creative technical solutions",
+          "year": "2024"
+        }
+      ]
+    },
+    "technical_workshops": {
+      "title": "Workshops & Training",
+      "accomplishments": [
+        {
+          "achievement": "Docker 101 Workshop (2024)",
+          "organization": "Atmiya University - Department of Computer Science",
+          "duration": "2 Days",
+          "description": "Completed intensive workshop on containerization and Docker fundamentals",
+          "skills": ["Docker", "Containerization", "DevOps", "Deployment"]
+        }
+      ]
+    },
+    "project_achievements": {
+      "title": "Project Milestones",
+      "accomplishments": [
+        {
+          "achievement": "30+ Projects Completed",
+          "description": "Successfully delivered 30+ production-ready projects across mobile and web platforms",
+          "domains": ["Mobile Development", "Web Development", "AI/ML", "Firebase Integration"]
+        },
+        {
+          "achievement": "Adaptive Quiz Engine with IRT Algorithm",
+          "description": "Implemented Item Response Theory (3PL model) with Bayesian updating for personalized learning",
+          "impact": "Reduced AI response latency by 90% through intelligent pooling and caching",
+          "innovation": "Combined IRT algorithms with Google Gemini AI and RAG pipeline"
+        },
+        {
+          "achievement": "Real-Time Multiplayer Game",
+          "description": "Built Scribble Game with <200ms drawing synchronization across 10+ players",
+          "technologies": ["Flutter", "Firebase Firestore", "Real-time sync"],
+          "impact": "Smooth multiplayer experience with automatic game state management"
+        },
+        {
+          "achievement": "Professional Networking Platform",
+          "description": "Created ProBuddy with swipe-based discovery and real-time messaging",
+          "optimization": "Reduced Firestore read operations by 60% through intelligent caching",
+          "features": ["State preservation", "Dynamic profiles", "Real-time chat"]
+        }
+      ]
+    },
+    "technical_skills": {
+      "title": "Technical Expertise",
+      "accomplishments": [
+        {
+          "achievement": "5+ Years of Development Experience",
+          "description": "Professional experience in Flutter, React, and full-stack development",
+          "specializations": ["Mobile Apps", "Web Apps", "AI Integration", "Firebase"]
+        },
+        {
+          "achievement": "Machine Learning Internship",
+          "organization": "Brainybeam Info-Tech PVT LTD",
+          "period": "May 2025 - July 2025",
+          "description": "Worked on data preprocessing, model training, and ML pipeline implementation",
+          "technologies": ["Python", "Pandas", "NumPy", "scikit-learn", "Jupyter"]
+        },
+        {
+          "achievement": "20+ Technologies Mastered",
+          "categories": {
+            "languages": ["Dart", "JavaScript", "TypeScript", "Python", "SQL"],
+            "frameworks": ["Flutter", "React", "Node.js", "Express.js"],
+            "databases": ["Firebase", "Hive", "SQLite", "MySQL", "PostgreSQL", "MongoDB"],
+            "ai_ml": ["Google Gemini AI", "ElevenLabs", "RAG Pipeline", "IRT Algorithms"],
+            "devops": ["Docker", "Vercel", "GitHub Actions", "Google Cloud"]
+          }
+        }
+      ]
+    },
+    "certifications_summary": {
+      "total_certificates": 4,
+      "categories": ["Cybersecurity", "Hackathons", "Workshops"],
+      "recent_year": "2025",
+      "organizations": ["Cyber Protectors", "Atmiya University"]
+    }
+  },
   "stats": {
     "projectsCompleted": "30+",
     "yearsExperience": "5+",
