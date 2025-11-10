@@ -9,9 +9,9 @@ import './Projects.css';
 const projectsData = [
   {
     id: 'email-sender-mcp',
-    title: 'Professional Email Sender MCP',
-    description: 'AI-powered email automation with Claude Desktop integration using FastMCP and Gemini AI.',
-    tech: ['Python', 'FastMCP', 'Gemini AI', 'SMTP', 'Gmail'],
+    title: 'Prompt2Mail - AI Email MCP',
+    description: 'Transform short prompts into polished emails with attachments. FastMCP server with Gemini AI and Gmail SMTP.',
+    tech: ['Python', 'FastMCP', 'Gemini AI', 'SMTP', 'MIME'],
     gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
     icon: '📧',
     featured: true,

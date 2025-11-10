@@ -24,80 +24,90 @@
   "projects": [
     {
       "id": "email-sender-mcp",
-      "title": "Professional Email Sender MCP",
-      "shortDescription": "AI-powered email automation with Claude Desktop integration using FastMCP and Gemini AI.",
-      "tech": ["Python 3.13", "FastMCP", "Gemini 2.5 Flash", "SMTP", "Gmail"],
+      "title": "Prompt2Mail - AI Email MCP Server",
+      "shortDescription": "Transform short prompts into polished professional emails with attachments via Claude Desktop integration.",
+      "tech": ["Python 3.13", "FastMCP 2.13.0.2", "Gemini 2.5 Flash", "Gmail SMTP", "MIME Encoding"],
       "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
       "icon": "📧",
       "featured": true,
-      "fullDescription": "A FastMCP server that integrates with Claude Desktop to send AI-enhanced professional emails directly from conversations. Transforms short ideas into polished emails with professional formatting, multiple recipient support, and tone customization.",
-      "keyInnovation": "Seamless AI email enhancement within Claude Desktop - simply describe what you want to say, and Gemini transforms it into a professional email",
+      "fullDescription": "A FastMCP server that transforms short prompts into polished professional emails and sends them via Gmail SMTP, integrated directly into Claude Desktop. Type 'meeting tomorrow at 2pm' and Gemini expands it into a complete email with subject, greeting, body, and closing.",
+      "keyInnovation": "Three-tool MCP workflow with file attachment support - list files, save uploaded content to temp directory, and send emails with MIME encoding",
       "features": [
-        "AI Email Enhancement - Gemini 2.5 Flash transforms short ideas into polished professional emails",
-        "Professional Formatting - Auto-generates subject lines, greetings, body, and closings",
-        "Multiple Recipients - Send to many people individually without group exposure",
-        "Tone Customization - Professional, friendly, or formal writing styles",
-        "Gmail Integration - Sends via SMTP from Gmail account with app password authentication",
-        "CC/BCC Support - Optional carbon copy recipients for transparency",
-        "Full Transparency - Shows complete email content before and after sending",
-        "One-line Usage - Works directly in Claude Desktop conversations"
+        "AI Email Enhancement - Gemini 2.5-flash expands brief ideas into complete professional emails with all components",
+        "File Attachments - Three-tool workflow: list_attachments browses, save_temp_file saves uploads, send_professional_email attaches with MIME",
+        "Multi-Recipient Support - Send to multiple people (comma-separated), each gets individual email with CC/BCC support",
+        "Tone Customization - Professional (default), friendly, or formal tone - AI adjusts writing style",
+        "Robust Error Handling - JSON parsing fallbacks, detailed attachment tracking, per-recipient SMTP error reporting",
+        "STDIO Transport - All stdout logging suppressed for clean MCP protocol, Windows encoding fixes applied",
+        "Secure Configuration - Credentials in .env protected by .gitignore, Gmail app password authentication",
+        "Detailed Status Reports - Shows which files attached vs missing, which emails succeeded/failed"
       ],
       "technicalStack": {
-        "server": "FastMCP (Python 3.13) for MCP server framework",
-        "ai": "Google Gemini 2.5 Flash for email content generation",
-        "email": "SMTP protocol with Gmail for email delivery",
-        "config": "python-dotenv for environment variable management",
-        "integration": "Claude Desktop MCP protocol for seamless chat integration"
+        "server": "FastMCP 2.13.0.2 with STDIO transport for Claude Desktop MCP protocol",
+        "ai": "Google Gemini 2.5 Flash for email content generation with JSON response format",
+        "email": "Gmail SMTP via TLS port 587 with individual per-recipient sending",
+        "attachments": "MIME encoding for multi-file attachments with success/failure tracking",
+        "config": "python-dotenv for environment variables, .gitignore for credential protection"
+      },
+      "mcpTools": {
+        "send_professional_email": "Main tool - takes main_idea, recipients, tone, cc, bcc, attachments params",
+        "list_attachments": "File browser - lists directory contents with sizes and full paths",
+        "save_temp_file": "Saves uploaded file content (text or base64) to temp_attachments directory"
       },
       "keyAlgorithms": {
-        "aiPromptEngineering": "Detailed prompts ensure consistent email formatting with subject, greeting, body, and closing",
-        "individualDelivery": "Loop through recipients sending separate SMTP messages to maintain privacy",
-        "toneAdaptation": "AI adjusts writing style based on specified tone (professional/friendly/formal)",
-        "errorHandling": "Comprehensive error catching for SMTP, AI API, and configuration issues"
+        "aiPromptEngineering": "Gemini prompt generates JSON with subject, greeting, body, closing fields",
+        "jsonFallback": "Catches malformed AI responses and extracts email components with regex",
+        "individualDelivery": "Loops through recipients sending separate SMTP messages with detailed error tracking",
+        "attachmentWorkflow": "Claude uploads file → save_temp_file saves to temp dir → email tool attaches from path",
+        "mimeEncoding": "Uses email.mime library for multi-part messages with file attachments"
       },
       "challengesSolved": [
         {
-          "challenge": "Gmail Security Configuration",
-          "problem": "Gmail blocks traditional password authentication for security",
-          "solution": "Configured Gmail App Password (16-character code) and updated SMTP settings for secure authentication while maintaining account security"
+          "challenge": "Claude File Upload Handling",
+          "problem": "Direct file path extraction from Claude uploads doesn't work due to internal storage",
+          "solution": "Implemented save_temp_file tool - Claude saves uploaded content first, then passes saved path to email tool for attachment"
         },
         {
-          "challenge": "AI Response Consistency",
-          "problem": "Ensuring AI always generates properly formatted emails with all required components",
-          "solution": "Engineered detailed Gemini prompts with examples and validation to consistently produce subject, greeting, body, and closing"
+          "challenge": "STDIO Transport + Logging",
+          "problem": "stdout logging breaks JSON parsing in MCP protocol communication",
+          "solution": "Suppressed all stdout logging, applied Windows-specific encoding fixes for clean STDIO communication with Claude Desktop"
         },
         {
-          "challenge": "Individual Email Privacy",
-          "problem": "Sending to multiple recipients without exposing everyone's email addresses",
-          "solution": "Implemented individual SMTP message sending in loop, each recipient gets personal email maintaining professional etiquette"
+          "challenge": "Malformed AI Responses",
+          "problem": "Gemini sometimes returns improperly formatted JSON breaking email parsing",
+          "solution": "Added JSON parsing fallbacks with regex extraction for subject/greeting/body/closing when JSON fails"
         },
         {
-          "challenge": "Claude Desktop Integration",
-          "problem": "Configuring MCP server to work seamlessly with Claude Desktop",
-          "solution": "Created proper JSON config with Python executable path and FastMCP server script, tested connection and tool registration"
+          "challenge": "Per-Recipient Error Reporting",
+          "problem": "Need to know exactly which emails succeeded/failed when sending to multiple people",
+          "solution": "Implemented individual SMTP error catching per recipient with detailed status reporting showing success/failure reasons"
         }
       ],
-      "usageExample": "Simply say in Claude: 'Send email to user@example.com: Project completed early' and it sends AI-enhanced professional email",
+      "usageExample": "In Claude: 'Send email to user@example.com: Meeting rescheduled to tomorrow 2pm' → Gemini generates professional email → SMTP sends → Reports status",
+      "attachmentWorkflow": "1. User uploads file in Claude → 2. Claude calls save_temp_file(filename, content) → 3. File saved to temp_attachments/ → 4. Claude calls send_professional_email(attachments=['temp_attachments/file.pdf']) → 5. Email sent with MIME attachment",
       "configuration": {
         "envVariables": ["SMTP_EMAIL", "SMTP_PASSWORD", "SENDER_NAME", "GEMINI_API_KEY"],
-        "claudeConfig": "JSON config with Python path and server.py location",
-        "dependencies": ["fastmcp", "google-generativeai", "python-dotenv", "smtplib"]
+        "claudeConfig": "JSON config with Python 3.13 path and server.py location in mcpServers",
+        "dependencies": ["fastmcp==2.13.0.2", "google-generativeai", "python-dotenv"],
+        "transport": "STDIO for MCP protocol with suppressed stdout logging"
       },
       "benefits": [
-        "Save time with one-line email sending from Claude conversations",
-        "Professional writing without effort - AI handles formatting and tone",
+        "Save time with prompt-to-email transformation - no manual writing",
+        "Professional formatting automatically applied by AI",
+        "File attachments supported with detailed tracking",
         "Privacy-focused individual emails, no group exposure",
-        "Fully transparent - see exactly what's being sent before delivery",
-        "Seamless integration - no separate interface or complex forms needed",
-        "Secure authentication using Gmail app passwords"
+        "Robust error handling with detailed status reports",
+        "Secure credential management with .env and .gitignore",
+        "Works directly in Claude Desktop - no separate interface"
       ],
-      "repository": "https://github.com/JeelChandegra/email-sender-mcp",
-      "status": "Fully Operational",
+      "repository": "https://github.com/JeelChandegra/Prompt2Mail",
+      "status": "Fully Functional - All features working, tested with Gmail, uploaded to GitHub",
+      "currentLimitation": "Attachment workflow requires Claude to first call save_temp_file to save uploaded content, then pass path to email tool",
       "metrics": {
-        "emailGenerationTime": "<2 seconds",
-        "supportedRecipients": "Unlimited",
+        "mcpTools": "3 (send, list, save)",
         "toneOptions": "3 (Professional, Friendly, Formal)",
-        "setupTime": "<5 minutes"
+        "transportProtocol": "STDIO",
+        "smtpPort": "TLS 587"
       }
     },
     {
