@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { useInView } from 'motion/react';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SpotlightCard from './SpotlightCard';
 import TiltCard from './TiltCard';
@@ -15,6 +15,7 @@ const projectsData = [
     gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
     icon: '📧',
     featured: true,
+    category: 'AI/Python',
   },
   {
     id: 'adaptive-quiz-engine',
@@ -24,6 +25,7 @@ const projectsData = [
     gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
     icon: '🎓',
     featured: true,
+    category: 'Flutter',
   },
   {
     id: 'probuddy',
@@ -33,6 +35,7 @@ const projectsData = [
     gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
     icon: '🤝',
     featured: true,
+    category: 'Flutter',
   },
   {
     id: 'scribble-game',
@@ -42,6 +45,7 @@ const projectsData = [
     gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
     icon: '�',
     featured: true,
+    category: 'Flutter',
   },
    {
     id: 'codeforces-tracker',
@@ -51,6 +55,7 @@ const projectsData = [
     gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
     icon: '📊',
     featured: true,
+    category: 'Web',
   },
   {
     id: 'attendance-management',
@@ -60,6 +65,7 @@ const projectsData = [
     gradient: 'linear-gradient(135deg, #30cfd0 0%, #330867 100%)',
     icon: '�',
     featured: true,
+    category: 'Flutter',
   },
   {
     id: 'journey-journal',
@@ -69,6 +75,7 @@ const projectsData = [
     gradient: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
     icon: '�️',
     featured: true,
+    category: 'Flutter',
   },
   {
     id: 'gemini-ai-chatbot',
@@ -78,12 +85,20 @@ const projectsData = [
     gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
     icon: '🤖',
     featured: true,
+    category: 'Web',
   },
 ];
+
+const categories = ['All', 'Flutter', 'Web', 'AI/Python'];
 
 const Projects = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const [activeCategory, setActiveCategory] = useState('All');
+
+  const filteredProjects = activeCategory === 'All' 
+    ? projectsData 
+    : projectsData.filter(project => project.category === activeCategory);
 
   return (
     <section id="projects" className="projects" ref={ref}>
@@ -95,16 +110,40 @@ const Projects = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="section-title">Featured Projects</h2>
-          <p className="section-subtitle">Some of my recent Android applications</p>
+          <p className="section-subtitle">Browse by technology stack</p>
+        </motion.div>
+
+        {/* Category Filter */}
+        <motion.div
+          className="category-filter"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          {categories.map((category) => (
+            <button
+              key={category}
+              className={`category-btn ${activeCategory === category ? 'active' : ''}`}
+              onClick={() => setActiveCategory(category)}
+            >
+              {category}
+              <span className="category-count">
+                {category === 'All' 
+                  ? projectsData.length 
+                  : projectsData.filter(p => p.category === category).length}
+              </span>
+            </button>
+          ))}
         </motion.div>
 
         <div className="projects-grid">
-          {projectsData.map((project, index) => (
+          {filteredProjects.map((project, index) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -30 }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
             >
               <SpotlightCard className={`project-card ${project.featured ? 'featured' : ''}`}>
                 <TiltCard>
