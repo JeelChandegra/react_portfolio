@@ -9,6 +9,79 @@ import './ProjectDetailPage.css';
 // Project data with detailed information
 const projectsData: { [key: string]: any } = {
   
+  'email-sender-mcp': {
+    title: 'Professional Email Sender MCP',
+    subtitle: 'AI-powered email automation with Claude Desktop integration using FastMCP and Gemini AI',
+    icon: '📧',
+    gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    overview: 'A FastMCP server that integrates with Claude Desktop to send AI-enhanced professional emails directly from conversations. Transforms short ideas into polished emails with professional formatting, multiple recipient support, and tone customization.',
+    keyInnovation: 'Seamless AI email enhancement within Claude Desktop - simply describe what you want to say, and Gemini 2.5 Flash transforms it into a professional email with proper formatting, subject lines, and tone.',
+    tech: ['Python 3.13', 'FastMCP', 'Google Gemini 2.5 Flash', 'SMTP/Gmail', 'python-dotenv'],
+    features: [
+      {
+        title: 'AI Email Enhancement',
+        description: 'Gemini 2.5 Flash transforms short ideas into polished professional emails with proper formatting, subject lines, greetings, and closings.',
+        icon: '🤖',
+      },
+      {
+        title: 'Multiple Recipients',
+        description: 'Send to many people individually without group exposure. Each recipient gets a personal email, maintaining privacy and professionalism.',
+        icon: '👥',
+      },
+      {
+        title: 'Tone Customization',
+        description: 'Choose between professional, friendly, or formal writing styles. AI adapts the email content to match your desired tone perfectly.',
+        icon: '🎯',
+      },
+      {
+        title: 'Claude Desktop Integration',
+        description: 'Works seamlessly within Claude Desktop through MCP (Model Context Protocol). No separate interface needed - just chat naturally.',
+        icon: '🔌',
+      },
+    ],
+    metrics: [
+      { label: 'Email Generation Time', value: '<2s' },
+      { label: 'Supported Recipients', value: 'Unlimited' },
+      { label: 'Tone Options', value: '3' },
+      { label: 'Setup Time', value: '<5min' },
+    ],
+    challenges: [
+      {
+        problem: 'Gmail Security & App Passwords',
+        solution: 'Configured Gmail App Password (16-character code) instead of regular password. Updated security settings to allow SMTP access while maintaining account security.',
+      },
+      {
+        problem: 'AI Response Formatting',
+        solution: 'Engineered detailed Gemini prompts to consistently generate properly formatted emails with subject, greeting, body, and closing. Added validation to ensure all components are present.',
+      },
+      {
+        problem: 'Individual Email Delivery',
+        solution: 'Implemented loop to send separate SMTP messages to each recipient, avoiding group exposure and maintaining email etiquette for professional communications.',
+      },
+      {
+        problem: 'Claude Desktop MCP Configuration',
+        solution: 'Created proper JSON config with Python executable path and server script location. Tested with FastMCP framework for reliable Claude integration.',
+      },
+    ],
+    architecture: [
+      { layer: 'MCP Server', tech: 'FastMCP (Python)', purpose: 'Claude Desktop integration' },
+      { layer: 'AI Enhancement', tech: 'Google Gemini 2.5 Flash', purpose: 'Email content generation' },
+      { layer: 'Email Delivery', tech: 'SMTP + Gmail', purpose: 'Sending emails' },
+      { layer: 'Configuration', tech: 'python-dotenv', purpose: 'Environment management' },
+      { layer: 'Runtime', tech: 'Python 3.13', purpose: 'Server execution' },
+    ],
+    achievements: [
+      'Built complete MCP server with FastMCP framework for Claude Desktop',
+      'Integrated Google Gemini AI for professional email enhancement',
+      'Implemented individual email delivery to multiple recipients',
+      'Created seamless one-line usage within Claude conversations',
+      'Configured secure Gmail SMTP authentication with app passwords',
+      'Added full transparency - shows email content before/after sending',
+    ],
+    github: 'https://github.com/JeelChandegra/email-sender-mcp',
+    demo: '#',
+  },
+  
   'codeforces-tracker': {
     title: 'Codeforces Problem Tracker',
     subtitle: 'Analytics dashboard for tracking competitive programming progress with smart problem recommendations',

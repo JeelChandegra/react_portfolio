@@ -7,7 +7,15 @@ import TiltCard from './TiltCard';
 import './Projects.css';
 
 const projectsData = [
- 
+  {
+    id: 'email-sender-mcp',
+    title: 'Professional Email Sender MCP',
+    description: 'AI-powered email automation with Claude Desktop integration using FastMCP and Gemini AI.',
+    tech: ['Python', 'FastMCP', 'Gemini AI', 'SMTP', 'Gmail'],
+    gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    icon: '📧',
+    featured: true,
+  },
   {
     id: 'adaptive-quiz-engine',
     title: 'Adaptive Quiz Engine',

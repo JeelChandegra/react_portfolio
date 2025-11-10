@@ -49,6 +49,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://jeelchandegra.vercel.app/projects/email-sender-mcp</loc>
+    <lastmod>2025-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://jeelchandegra.vercel.app/projects/gemini-ai-chatbot</loc>
     <lastmod>2025-11-06</lastmod>
     <changefreq>monthly</changefreq>
