@@ -566,7 +566,72 @@ const projectsData: { [key: string]: any } = {
       'Integrated real-time API rate limit monitoring and error handling',
     ],
     github: 'https://github.com/JeelChandegra/gemini-chatbot',
-    demo: 'https://aijeel.vercel.app/',
+    github: 'https://aijeel.vercel.app/',
+  },
+  'flutter-open-source-contribution': {
+    title: 'Flutter Open Source Contribution',
+    subtitle: 'Added unit test ensuring Tab widget throws assertion error when both text and child parameters are provided',
+    icon: '💼',
+    gradient: 'linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%)',
+    overview: 'Contributed to the Flutter framework by adding a unit test that ensures the Tab widget correctly throws an assertion error when both text and child parameters are provided simultaneously. This prevents runtime errors and improves developer experience by catching invalid widget configurations early in the development process.',
+    keyInnovation: 'Comprehensive unit test coverage for Tab widget parameter validation, ensuring framework reliability and developer-facing error clarity through proper assertion errors.',
+    tech: ['Flutter', 'Dart', 'Unit Testing', 'Open Source'],
+    features: [
+      {
+        title: 'Unit Test Implementation',
+        description: 'Added test case for Tab widget parameter validation ensuring assertion error when both text and child are provided',
+        icon: '🧪',
+      },
+      {
+        title: 'Error Prevention',
+        description: 'Prevents runtime crashes from invalid widget configurations by catching them during testing phase',
+        icon: '🛡️',
+      },
+      {
+        title: 'Developer Experience',
+        description: 'Clear assertion errors guide developers to correct widget usage patterns and proper Flutter development',
+        icon: '👨‍💻',
+      },
+      {
+        title: 'Test Coverage Improvement',
+        description: 'Enhanced overall test coverage for Flutter\'s widget library through comprehensive parameter validation',
+        icon: '📈',
+      },
+    ],
+    metrics: [
+     
+      { label: 'Framework Impact', value: 'Flutter SDK' },
+      { label: 'Status', value: 'Merged' },
+    ],
+    challenges: [
+      {
+        problem: 'Parameter Validation Logic',
+        solution: 'Implemented assertion error in widget constructor to catch invalid combinations during development and prevent runtime errors.',
+      },
+      {
+        problem: 'Test Coverage Gaps',
+        solution: 'Added comprehensive unit tests covering all parameter combination scenarios to ensure robust validation.',
+      },
+      {
+        problem: 'Contribution Process',
+        solution: 'Learned and followed Flutter\'s contribution guidelines, CI checks, and PR review process to successfully merge the contribution.',
+      },
+    ],
+    architecture: [
+      { layer: 'Framework', tech: 'Flutter SDK', purpose: 'Core framework contribution' },
+      { layer: 'Language', tech: 'Dart', purpose: 'Widget implementation' },
+      { layer: 'Testing', tech: 'Flutter Test Framework', purpose: 'Unit test validation' },
+      { layer: 'Process', tech: 'GitHub PR', purpose: 'Open source contribution' },
+    ],
+    achievements: [
+      'Successfully contributed to Google\'s Flutter framework',
+      'Added comprehensive unit test for Tab widget parameter validation',
+      'Improved framework reliability and developer experience',
+      'Followed Flutter\'s contribution standards and CI/CD pipeline',
+      'Enhanced test coverage for widget library validation',
+    ],
+    github: 'https://github.com/flutter/flutter',
+    demo: '#',
   },
 };
 

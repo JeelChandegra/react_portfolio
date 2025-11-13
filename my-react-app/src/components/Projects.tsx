@@ -87,9 +87,19 @@ const projectsData = [
     featured: true,
     category: 'Web',
   },
+  {
+    id: 'flutter-open-source-contribution',
+    title: 'Flutter Open Source Contribution',
+    description: 'Added unit test ensuring Tab widget throws assertion error when both text and child parameters are provided. Improved test coverage and framework reliability.',
+    tech: ['Flutter', 'Dart', 'Unit Testing', 'Open Source'],
+    gradient: 'linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%)',
+    icon: '💼',
+    featured: true,
+    category: 'Contribution',
+  },
 ];
 
-const categories = ['All', 'Flutter', 'Web', 'AI/Python'];
+const categories = ['All', 'Flutter', 'Web', 'AI/Python', 'Contribution'];
 
 const Projects = () => {
   const ref = useRef(null);
