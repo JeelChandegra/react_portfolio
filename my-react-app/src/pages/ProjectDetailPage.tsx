@@ -566,7 +566,7 @@ const projectsData: { [key: string]: any } = {
       'Integrated real-time API rate limit monitoring and error handling',
     ],
     github: 'https://github.com/JeelChandegra/gemini-chatbot',
-    github: 'https://aijeel.vercel.app/',
+    demo: 'https://aijeel.vercel.app/',
   },
   'flutter-open-source-contribution': {
     title: 'Flutter Open Source Contribution',
