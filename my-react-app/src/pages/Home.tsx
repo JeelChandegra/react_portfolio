@@ -121,7 +121,7 @@ const Home = () => {
                 <div className="card-icon">👨‍💻</div>
                 <h3>Android Developer</h3>
                 <p>
-                 I specialize in building scalable, high-performance mobile applications using Kotlin, Jetpack Compose, Flutter, and React Native. My focus is on clean architecture, modern design patterns, and crafting smooth, intuitive user experiences. I’m passionate about writing clean, maintainable code and staying up to date with the latest tools and frameworks to deliver reliable, production-ready apps that users love.
+                 I specialize in building scalable, high-performance mobile applications using Flutter and React Native. My focus is on clean architecture, modern design patterns, and crafting smooth, intuitive user experiences. I’m passionate about writing clean, maintainable code and staying up to date with the latest tools and frameworks to deliver reliable, production-ready apps that users love.
                  </p>
                    
               </motion.div>
