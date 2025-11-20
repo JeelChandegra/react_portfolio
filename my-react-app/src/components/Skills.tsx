@@ -16,7 +16,7 @@ const skillCategories = [
   },
   {
     title: 'Networking',
-    skills: ['Retrofit', 'OkHttp', 'Ktor', 'REST APIs', 'GraphQL','axios' ,'D io']
+    skills: [ 'REST APIs', 'GraphQL','axios' ,'Dio']
   },
   {
     title: 'Databases',
@@ -24,16 +24,13 @@ const skillCategories = [
   },
   {
     title: 'Frameworks & Libraries',
-    skills: ['Jetpack Compose', 'React','Redux','Next.js','React Native', 'Flutter', 'Node.js', 'Express.js']
+    skills: ['React','Redux','Next.js','React Native', 'Flutter', 'Node.js', 'Express.js']
   },
   {
     title: 'Cloud & DevOps',
-    skills: ['Docker', 'GitHub Actions', 'AWS', 'Google Cloud', 'Firebase Hosting']
+    skills: ['Docker', 'GitHub Actions', 'Firebase Hosting']
   },
-  {
-    title: 'Testing',
-    skills: ['JUnit', 'Espresso', 'Mockito']
-  },
+ 
   {
     title: 'Tools & Others',
     skills: ['Git', 'Gradle', 'CI/CD', 'Android Studio', 'Figma','vsCode','Jupyter Notebooks']
