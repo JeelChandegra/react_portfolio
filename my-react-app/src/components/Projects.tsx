@@ -7,16 +7,7 @@ import TiltCard from './TiltCard';
 import './Projects.css';
 
 const projectsData = [
-  {
-    id: 'email-sender-mcp',
-    title: 'Prompt2Mail - AI Email MCP',
-    description: 'Transform short prompts into polished emails with attachments. FastMCP server with Gemini AI and Gmail SMTP.',
-    tech: ['Python', 'FastMCP', 'Gemini AI', 'SMTP', 'MIME'],
-    gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-    icon: '📧',
-    featured: true,
-    category: 'AI/Python',
-  },
+ 
   {
     id: 'adaptive-quiz-engine',
     title: 'Adaptive Quiz Engine',
@@ -86,6 +77,16 @@ const projectsData = [
     icon: '🤖',
     featured: true,
     category: 'Web',
+  },
+   {
+    id: 'email-sender-mcp',
+    title: 'Prompt2Mail - AI Email MCP',
+    description: 'Transform short prompts into polished emails with attachments. FastMCP server with Gemini AI and Gmail SMTP.',
+    tech: ['Python', 'FastMCP', 'Gemini AI', 'SMTP', 'MIME'],
+    gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    icon: '📧',
+    featured: true,
+    category: 'AI/Python',
   },
   {
     id: 'flutter-open-source-contribution',

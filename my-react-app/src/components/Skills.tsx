@@ -24,7 +24,7 @@ const skillCategories = [
   },
   {
     title: 'Frameworks & Libraries',
-    skills: ['React','Redux','Next.js','React Native', 'Flutter', 'Node.js', 'Express.js']
+    skills: ['Redux','Next.js','React Native', 'Flutter', 'Node.js', 'Express.js']
   },
   {
     title: 'Cloud & DevOps',
